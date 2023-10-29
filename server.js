@@ -3,6 +3,7 @@ import morgan from 'morgan';
 // import cors from 'cors'; <--- for front/back
 import colors from 'colors';
 import dotenv from 'dotenv';
+import connectDB from './src/config/db.js';
 
 //Process env
 dotenv.config();
@@ -25,3 +26,6 @@ const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`server is runing on port ${PORT.bgGreen.black}`.bgCyan.white);
 });
+
+//connect DataBase
+connectDB();

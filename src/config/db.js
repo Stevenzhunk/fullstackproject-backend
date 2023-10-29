@@ -1,16 +1,29 @@
-import msql from 'mysql2/promise';
+import mysql from 'mysql2/promise';
+import colors from 'colors';
 
+const connectDB = async () => {
+  try {
+    // create the connection
+    const connection = await mysql.createConnection({
+      host: process.env.ALWAYS_HOST,
+      user: process.env.ALWAYS_USER,
+      database: process.env.ALWAYS_DATABASE,
+      password: process.env.ALWAYS_PASSWORD,
+    });
 
-const connectDB = async()=>{
-  try{
-  // create the connection
-  const connection = await mysql.createConnection({host:'localhost', user: 'root', database: 'test'});
-  if(connection!=null{
-    console.log(`connect with succesful with mySQL`)
-  })
-  
+    if (connection) {
+      console.log(`Connected successfully to MySQL`.bgMagenta.white);
+
+      const [rows, fields] = await connection.execute(
+        'SELECT * FROM Prueba_table'
+      );
+      console.log('Rows:', rows);
+    }
+    // Cierra la conexión.
+    await connection.end();
+  } catch (error) {
+    console.log(`Error in connexion MySQL: ${error}`.bgRed.white);
   }
-  catch(error){
-    console.log(error);
-  }
-}
+};
+
+export default connectDB;
