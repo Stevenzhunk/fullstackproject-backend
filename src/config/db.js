@@ -20,7 +20,7 @@ const connectDB = async () => {
       console.log('Rows:', rows);
     }
     // Cierra la conexión.
-    await connection.release();
+    await connection.end();
   } catch (error) {
     console.log(`Error in connexion MySQL: ${error}`.bgRed.white);
   }
