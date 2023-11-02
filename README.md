@@ -1,0 +1,35 @@
+# Apartado Backend del Proyecto Codo a Codo- Grupo 4 - Comisión 23573
+Apartado del backend creado con NodeJs-Express para las operaciones CRUD del server-database
+
+
+## Referencia API Temporal 
+
+#### Get all items
+
+```http
+  GET /
+```
+Devuelve un Hola mundo en H1 (rutas en progreso)
+
+#### Pasos a seguir
+
+1.- Instalar las dependencias con el NPM run
+```bash
+  npm install
+```
+
+2.- Se Requiere la creación de un archivo . env que contiene los siguientes datos
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `ALWAYS_USER` | `string` | **Required**. usuario base de datos de Alwaysdata |
+| `ALWAYS_PASSWORD` | `string` | **Required**. password base de datos de Alwaysdata |
+| `ALWAYS_DATABASE` | `string` | **Required**. nombre base de datos de Alwaysdata |
+| `ALWAYS_HOST ` | `string` | **Opcional**. host local para correr el servidor ( Sino se especifica corre en el 3000) |
+
+## Tech Stack
+
+**Server:** Node, Express, MySQL
+
+**Dependencias:** colors, cors, dotenv, express, mysql2, morgan, nodemon
+
