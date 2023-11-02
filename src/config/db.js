@@ -4,7 +4,7 @@ import colors from 'colors';
 const connectDB = async () => {
   try {
     // create the connection
-    const connection = await mysql.createConnection({
+    const connection = await mysql.createPool({
       host: process.env.ALWAYS_HOST,
       user: process.env.ALWAYS_USER,
       database: process.env.ALWAYS_DATABASE,
