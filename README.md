@@ -10,7 +10,7 @@ Apartado del backend creado con NodeJs-Express para las operaciones CRUD del ser
   GET /
 ```
 
-Devuelve Servidor Statico (rutas en progreso)
+Devuelve Servidor Statico (Rutas Json para importar al PostMan en Discord)
 
 #### Pasos a seguir
 
