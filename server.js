@@ -20,7 +20,7 @@ app.use(express.static('public'));
 //Logs Morgan dev
 app.use(morgan('dev'));
 
-//routes Main, Admin, Shop
+//routes Main, Admin, Shop y Auth
 app.use('/', mainRouter);
 app.use('/admin', adminRouter);
 app.use('/shop', shopRoute);
