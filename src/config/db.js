@@ -1,5 +1,5 @@
-import mysql from 'mysql2/promise';
-import colors from 'colors';
+const mysql = require("mysql2/promise");
+const colors = require("colors");
 
 const connectDB = async () => {
   try {
@@ -15,9 +15,9 @@ const connectDB = async () => {
       console.log(`Connected successfully to MySQL`.bgMagenta.white);
 
       const [rows, fields] = await connection.execute(
-        'SELECT * FROM Prueba_table'
+        "SELECT * FROM Prueba_table"
       );
-      console.log('Rows:', rows);
+      console.log("Rows:", rows);
     }
     // Cierra la conexión.
     await connection.end();
@@ -26,4 +26,4 @@ const connectDB = async () => {
   }
 };
 
-export default connectDB;
+module.exports = connectDB;

@@ -1,27 +1,27 @@
-import express from 'express';
+const express = require("express");
 
-const shopRoute = express.Router();
+const shopRouter = express.Router();
 
-shopRoute.get('/', (req, res) => {
-  res.send('<h1>Soy la pagina Shop</h1>');
+shopRouter.get("/", (req, res) => {
+  res.send("<h1>Soy la pagina Shop!!!</h1>");
 });
 
-shopRoute.get('/item/:id', (req, res) => {
+shopRouter.get("/item/:id", (req, res) => {
   const { id } = req.params;
   res.send(`<h1>Soy el item de shop Nro : ${id} <h1>`);
 });
 
-shopRoute.post('/item/:id/add', (req, res) => {
+shopRouter.post("/item/:id/add", (req, res) => {
   const { id } = req.params;
-  res.send(`<h1>Soy el item de shop Nro : ${id} añadiendice al carrito <h1>`);
+  res.send(`<h1>Soy el item de shop Nro : ${id} añadiéndose al carrito <h1>`);
 });
 
-shopRoute.get('/cart', (req, res) => {
-  res.send('<h1>Soy el carrito de compras</h1>');
+shopRouter.get("/cart", (req, res) => {
+  res.send("<h1>Soy el carrito de compras</h1>");
 });
 
-shopRoute.post('/cart', (req, res) => {
-  res.send('<h1>Soy el post del carrito de compras</h1>');
+shopRouter.post("/cart", (req, res) => {
+  res.send("<h1>Soy el post del carrito de compras</h1>");
 });
 
-export default shopRoute;
+module.exports = shopRouter;
