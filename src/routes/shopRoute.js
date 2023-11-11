@@ -1,27 +1,16 @@
 const express = require("express");
-
 const shopRouter = express.Router();
 
-shopRouter.get("/", (req, res) => {
-  res.send("<h1>Soy la pagina Shop!!!</h1>");
-});
+const controller = require("../controllers/shopController.js");
 
-shopRouter.get("/item/:id", (req, res) => {
-  const { id } = req.params;
-  res.send(`<h1>Soy el item de shop Nro : ${id} <h1>`);
-});
+shopRouter.get("/", controller.shopHome);
 
-shopRouter.post("/item/:id/add", (req, res) => {
-  const { id } = req.params;
-  res.send(`<h1>Soy el item de shop Nro : ${id} añadiéndose al carrito <h1>`);
-});
+shopRouter.get("/item/:id", controller.shopItem);
 
-shopRouter.get("/cart", (req, res) => {
-  res.send("<h1>Soy el carrito de compras</h1>");
-});
+shopRouter.post("/item/:id/add", controller.addItem);
 
-shopRouter.post("/cart", (req, res) => {
-  res.send("<h1>Soy el post del carrito de compras</h1>");
-});
+shopRouter.get("/cart", controller.cartHome);
+
+shopRouter.post("/cart", controller.cartPost);
 
 module.exports = shopRouter;
