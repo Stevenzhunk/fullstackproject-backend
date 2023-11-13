@@ -33,8 +33,6 @@ const app = express();
 // static public
 app.use(express.static("public"));
 
-app.use(express.urlencoded({ extended: false }));
-
 //Logs Morgan dev
 app.use(morgan("dev"));
 
@@ -43,6 +41,10 @@ app.use("/", mainRouter);
 app.use("/admin", adminRouter);
 app.use("/shop", shopRouter);
 app.use("/auth", authRouter);
+
+app.use((req, res, next) => {
+  res.status(404).send("La pagina no existe");
+});
 
 //port
 const PORT = process.env.PORT || 3000;
