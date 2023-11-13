@@ -33,6 +33,8 @@ const app = express();
 // static public
 app.use(express.static("public"));
 
+app.use(express.urlencoded({ extended: false }));
+
 //Logs Morgan dev
 app.use(morgan("dev"));
 
