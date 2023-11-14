@@ -42,6 +42,10 @@ app.use("/admin", adminRouter);
 app.use("/shop", shopRouter);
 app.use("/auth", authRouter);
 
+app.use((req, res, next) => {
+  res.status(404).send("La pagina no existe");
+});
+
 //port
 const PORT = process.env.PORT || 3000;
 
