@@ -1,6 +1,6 @@
 /*fonts*/
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;900&display=swap');
 
 /* margen fixeado*/
 * {
@@ -96,7 +96,41 @@ main {
   cursor: pointer;
   display: none;
 }
+/*------------ menu desplegable ---------------*/
+/*-------------------------------------------*/
 
+/* Estilo inicial del submenu */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #fff; /* Color de fondo del submenu */
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+  padding: 1rem;
+}
+
+/* Mostrar el submenu cuando está activo */
+.submenu.show {
+  display: block;
+  background: #30343f;
+}
+
+/* Estilos para la flecha */
+.arrow-down {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: solid 5px transparent;
+  border-top-color: #000; /* Color de la flecha */
+  transition: transform 0.3s ease; /* Animación de la flecha */
+}
+
+/* Rotación de la flecha cuando el submenu está activo */
+.submenu.show + .arrow-down {
+  transform: rotate(180deg);
+}
+
+/*---------------------------------------*/
 .cart {
   display: flex;
   justify-content: center;
@@ -123,7 +157,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/img/funkos-banner.webp");
+  background-image: url('/img/funkos-banner.webp');
   background-size: cover;
   z-index: -1;
   border: 1px solid transparent;
@@ -703,8 +737,8 @@ se me volvía loco el texto si usaba todo igual a .placeholder buscador - VER */
   text-align: center;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
