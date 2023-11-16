@@ -23,6 +23,15 @@ const mainRouter = require("./src/routes/mainRoute.js");
 const adminRouter = require("./src/routes/adminRoute.js");
 const shopRouter = require("./src/routes/shopRoute");
 const authRouter = require("./src/routes/authRoute.js");
+const expressLayouts = require("express-ejs-layouts");
+
+//seteo Template Engine (EJS)
+app.set("view engine", "ejs");
+app.set("views", "./src/views");
+
+//seteo express Layouts
+app.use(expressLayouts);
+app.set("layout", ".src/layouts/");
 
 //Process env
 dotenv.config();
