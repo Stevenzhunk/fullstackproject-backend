@@ -2,9 +2,9 @@ const express = require("express");
 
 const mainRouter = express.Router();
 
-mainRouter.get("/home", (req, res) => {
-  res.send("<h1>Pagina Home</h1>");
-});
+const controller = require("../controllers/mainController")
+
+mainRouter.get("/home", controller.index );
 
 mainRouter.get("/contact", (req, res) => {
   res.send("<h1>Pagina Contacto</h1>");

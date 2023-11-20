@@ -1,3 +1,8 @@
+/* para llamar al layout del admin hay que reemplazar aca con la ruta
+  app.get('/', function(req, res) {
+  res.render('the-view', { layout: 'specific-layout' });
+});
+*/ 
 const adminHome = (req, res) => {
   res.send("<h1>Soy el panel Admin</h1>");
 };
