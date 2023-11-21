@@ -19,7 +19,8 @@ const adminCreatePost = (req, res) => {
 
 const adminEditGet = (req, res) => {
   const { id } = req.params;
-  res.send(`<h1>Soy el Item Nro : ${id} del Admin</h1>`);
+  //como mando el parametro del item a editar 
+  res.render('edit',{ layout: path.join(__dirname, '../views/layouts/layoutAdmin')});
 };
 
 const adminEditPut = (req, res) => {
