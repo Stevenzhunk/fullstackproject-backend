@@ -3,13 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%- title %></title>
-    <%- styles %>
+    <title><%-title%></title>
+    <%-styles%>
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/admin.css" />
+    <link rel="stylesheet" href="/responsive.css" />
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link
+      rel="shortcut icon"
+      href="/img/branding/isotype.svg"
+      type="image/x-icon"
+    />
   </head>
   <body>
-    <%- include('../partials/header-admin') %> 
-    <%- body %> 
-    <%- include('../partials/footer-admin') %>
-    <%- scripts %>
+    <%-include('../partials/header-admin') %> <%- body %> <%-
+    include('../partials/footer-admin') %> <%- scripts %>
+    <script src="/index.js"></script>
   </body>
 </html>
