@@ -34,4 +34,4 @@ Devuelve Servidor Statico (Rutas Json para importar al PostMan en Discord)
 
 **Server:** Node, Express, MySQL
 
-**Dependencias:** colors, cors, dotenv, express, mysql2, morgan, nodemon
+**Dependencias:** colors, cors, dotenv, express, mysql2, morgan, nodemon, ejs, express-ejs-layouts.
