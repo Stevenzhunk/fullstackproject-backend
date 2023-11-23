@@ -356,9 +356,12 @@ span {
 
 .title-add {
   font: var(--base-font-fix);
-  font-size: var(--font-intermediate);
+  font-size: var(--font-large);
   font-weight: var(--weight-large);
   text-transform: uppercase;
+}
+.plus-symbol{
+  font-size: var(--font-xlarge);
 }
 table {
   width: 100%;
