@@ -1,0 +1,18 @@
+<article class="productos">
+  <a href="/pages/item.html">
+    <div class="nuevo">Nuevo</div>
+    <picture>
+      <img
+        class="img-shop"
+        src="/img/star-wars/<%= card.imagen %>  "
+        alt="<%= card.nombre %>"
+      />
+    </picture>
+    <div class="datos_articulo_container">
+      <p class="articulo_franquicia"><%= card.franquicia %></p>
+      <h4 class="articulo_titulo"><%= card.titulo %></h4>
+      <p class="articulo_precio">$ <%= card.precio %></p>
+      <p class="articulo_cuotas"><%= card.cuotas %> CUOTAS SIN INTERÉS</p>
+    </div>
+  </a>
+</article>

@@ -48,31 +48,7 @@
     <h2 class="lanzamientos__titulo">PRODUCTOS RELACIONADOS</h2>
     <div class="ultimos_lanzamientos glide__track" data-glide-el="track">
       <ul class="lanzamientos_lista glide__slides">
-        <li class="glide__slide">
-          <article class="articulo">
-            <a href="/pages/shop.html">
-              <picture class="articulo__cover">
-                <spam class="nuevo">Nuevo</spam>
-                <img
-                  class="articulo__img--back"
-                  src="/img/star-wars/trooper-box.webp"
-                  alt="trooper-inbox"
-                />
-                <img
-                  class="articulo__img--front"
-                  src="/img/star-wars/trooper-1.webp"
-                  alt="trooper"
-                />
-              </picture>
-              <div>
-                <p class="articulo_franquicia">STAR WARS</p>
-                <h4 class="articulo_titulo">STORMTROOPER LIGHTSABER</h4>
-                <p class="articulo_precio">$ 1799,99</p>
-                <p class="articulo_cuotas">3 CUOTAS SIN INTERÉS</p>
-              </div>
-            </a>
-          </article>
-        </li>
+        <% productos.forEach(producto => { %>
         <li class="glide__slide">
           <article class="articulo">
             <a href="/pages/shop.html">
@@ -80,49 +56,25 @@
               <picture class="articulo__cover">
                 <img
                   class="articulo__img--back"
-                  src="/img/pokemon/pidgeotto-box.webp"
-                  alt="Figura de pajaro pokemon en caja"
+                  src="<%= producto.imageBack %>"
+                  alt="<%= producto.altBack %>"
                 />
                 <img
                   class="articulo__img--front"
-                  src="/img/pokemon/pidgeotto-1.webp"
-                  alt="Figura de pajaro pokemon"
+                  src="<%= producto.imageFront %>"
+                  alt="<%= producto.altFront %>"
                 />
               </picture>
               <div>
-                <p class="articulo_franquicia">POKEMON</p>
-                <h4 class="articulo_titulo">PIDGEOTTO</h4>
-                <p class="articulo_precio">$ 1799,99</p>
-                <p class="articulo_cuotas">3 CUOTAS SIN INTERÉS</p>
+                <p class="articulo_franquicia"><%= producto.class %></p>
+                <h4 class="articulo_titulo"><%= producto.title %></h4>
+                <p class="articulo_precio"><%= producto.price %></p>
+                <p class="articulo_cuotas"><%= producto.paymethod %></p>
               </div>
             </a>
           </article>
         </li>
-        <li class="glide__slide">
-          <article class="articulo">
-            <a href="/pages/shop.html">
-              <div class="nuevo">Nuevo</div>
-              <picture class="articulo__cover">
-                <img
-                  class="articulo__img--back"
-                  src="/img/harry-potter/luna-box.webp"
-                  alt="Figura de un personaje de Harry Potter en caja"
-                />
-                <img
-                  class="articulo__img--front"
-                  src="/img/harry-potter/luna-1.webp"
-                  alt="Figura de un personaje de Harry Potter"
-                />
-              </picture>
-              <div>
-                <p class="articulo_franquicia">HARRY POTTER</p>
-                <h4 class="articulo_titulo">LUNA LOVEGOOD LION MASK</h4>
-                <p class="articulo_precio">$ 1799,99</p>
-                <p class="articulo_cuotas">3 CUOTAS SIN INTERÉS</p>
-              </div>
-            </a>
-          </article>
-        </li>
+        <% }) %>
       </ul>
     </div>
     <div class="glide__arrows" data-glide-el="controls">
@@ -135,6 +87,10 @@
     </div>
   </section>
 </main>
+<!--como deberia ser llamada a dynamiCard : 
+<% productos.forEach(producto => { %>
+  <% include('partials/cardDynamic', { producto: producto }) %>
+<% }) %> -->
 
 <%- contentFor('scripts') %>
 <script src="/index.js"></script>
