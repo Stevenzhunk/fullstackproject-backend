@@ -3,14 +3,18 @@
   app.get('/', function(req, res) {
   res.render('the-view', { layout: 'specific-layout' });
 });
-*/ 
-const path = require('path');
+*/
+const path = require("path");
 const adminHome = (req, res) => {
-  res.send("<h1>Soy el panel Admin</h1>");
+  res.render("admin", {
+    layout: path.join(__dirname, "../views/layouts/layoutAdmin"),
+  });
 };
 
 const adminCreate = (req, res) => {
-  res.render('create',{ layout: path.join(__dirname, '../views/layouts/layoutAdmin')});
+  res.render("create", {
+    layout: path.join(__dirname, "../views/layouts/layoutAdmin"),
+  });
 };
 
 const adminCreatePost = (req, res) => {
@@ -19,8 +23,10 @@ const adminCreatePost = (req, res) => {
 
 const adminEditGet = (req, res) => {
   const { id } = req.params;
-  //como mando el parametro del item a editar 
-  res.render('edit',{ layout: path.join(__dirname, '../views/layouts/layoutAdmin')});
+  //como mando el parametro del item a editar
+  res.render("edit", {
+    layout: path.join(__dirname, "../views/layouts/layoutAdmin"),
+  });
 };
 
 const adminEditPut = (req, res) => {
