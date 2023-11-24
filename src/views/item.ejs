@@ -48,33 +48,8 @@
     <h2 class="lanzamientos__titulo">PRODUCTOS RELACIONADOS</h2>
     <div class="ultimos_lanzamientos glide__track" data-glide-el="track">
       <ul class="lanzamientos_lista glide__slides">
-        <% productos.forEach(producto => { %>
-        <li class="glide__slide">
-          <article class="articulo">
-            <a href="/pages/shop.html">
-              <div class="nuevo">Nuevo</div>
-              <picture class="articulo__cover">
-                <img
-                  class="articulo__img--back"
-                  src="<%= producto.imageBack %>"
-                  alt="<%= producto.altBack %>"
-                />
-                <img
-                  class="articulo__img--front"
-                  src="<%= producto.imageFront %>"
-                  alt="<%= producto.altFront %>"
-                />
-              </picture>
-              <div>
-                <p class="articulo_franquicia"><%= producto.class %></p>
-                <h4 class="articulo_titulo"><%= producto.title %></h4>
-                <p class="articulo_precio"><%= producto.price %></p>
-                <p class="articulo_cuotas"><%= producto.paymethod %></p>
-              </div>
-            </a>
-          </article>
-        </li>
-        <% }) %>
+        <% productos.forEach(producto => { %> <%-
+        include('partials/cardDynamic', { producto: producto }) %> <% }) %>
       </ul>
     </div>
     <div class="glide__arrows" data-glide-el="controls">
@@ -87,10 +62,6 @@
     </div>
   </section>
 </main>
-<!--como deberia ser llamada a dynamiCard : 
-<% productos.forEach(producto => { %>
-  <% include('partials/cardDynamic', { producto: producto }) %>
-<% }) %> -->
 
 <%- contentFor('scripts') %>
 <script src="/index.js"></script>
