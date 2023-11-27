@@ -7,11 +7,11 @@ const mainContact = (req, res) => {
 };
 
 const mainAbout = (req, res) => {
-  res.send('<h1>Pagina Acerca de Nosotros</h1>');
+  res.render('about');
 };
 
 const mainFaqs = (req, res) => {
-  res.send('<h1>Pagina Faqs</h1>');
+  res.render('faqs');
 };
 
 module.exports = {
