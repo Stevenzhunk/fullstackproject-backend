@@ -1,5 +1,5 @@
 const shopHome = (req, res) => {
-  res.send('<h1>Soy la pagina Shop!!!</h1>');
+  res.render('shop');
 };
 
 const shopItem = (req, res) => {
