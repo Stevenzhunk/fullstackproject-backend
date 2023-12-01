@@ -1,5 +1,4 @@
-<%- contentFor('title') %> SHOP 
-<%- contentFor('styles') %>
+<%- contentFor('title') %> SHOP <%- contentFor('styles') %>
 
 <link
   rel="stylesheet"
@@ -17,7 +16,7 @@
 
 <%- contentFor('body') %>
 
-  <div class="container_shop">
+<div class="container_shop">
   <aside class="aside_shop">
     <section class="shop_buscador">
       <div class="buscar">
@@ -114,15 +113,13 @@
     <section class="shop">
       <ul class="shop_lista">
         <li>
-          <% productos.forEach(card => { %>
-            <li> <%- include('partials/card.ejs', {
-              card: card }) %> </li>  <% }) %>
+          <% productos.forEach(card => { %> <%- include('partials/card.ejs', {
+          card: card }) %> <% }) %>
         </li>
       </ul>
-    </section>   
+    </section>
   </main>
-  </div>
-
+</div>
 
 <%- contentFor('scripts') %>
 

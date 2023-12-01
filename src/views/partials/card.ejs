@@ -1,23 +1,25 @@
-<article class="productos articulo">
-  <a href="/pages/item.html">
-    <picture class="articulo__cover">
-      <div class="nuevo">Nuevo</div>
-      <img
-        class="img-shop articulo__img--back "
-        src="<%= card.imageBack %>"
-        alt="<%= card.altBack %>"
-      />
-      <img
-        class="img-shop articulo__img--front "
-        src="<%= card.imageFront %> "
-        alt="<%= card.altBack %>"
-      />
-    </picture>
-    <div class="datos_articulo_container">
-      <p class="articulo_franquicia"><%= card.class %></p>
-      <h4 class="articulo_titulo"><%= card.title %></h4>
-      <p class="articulo_precio"><%= card.price %></p>
-      <p class="articulo_cuotas"><%= card.paymethod %></p>
-    </div>
-  </a>
-</article>
+<li>
+  <article class="productos articulo">
+    <a href="/pages/item.html">
+      <picture class="articulo__cover">
+        <div class="nuevo">Nuevo</div>
+        <img
+          class="img-shop articulo__img--back"
+          src="<%= card.imageBack %>"
+          alt="<%= card.altBack %>"
+        />
+        <img
+          class="img-shop articulo__img--front"
+          src="<%= card.imageFront %> "
+          alt="<%= card.altBack %>"
+        />
+      </picture>
+      <div class="datos_articulo_container">
+        <p class="articulo_franquicia"><%= card.class %></p>
+        <h4 class="articulo_titulo"><%= card.title %></h4>
+        <p class="articulo_precio"><%= card.price %></p>
+        <p class="articulo_cuotas"><%= card.paymethod %></p>
+      </div>
+    </a>
+  </article>
+</li>
