@@ -8,7 +8,7 @@ mobileMenu.addEventListener('click', () => {
   navOn.classList.toggle('navfull');
 });
 
-const productos git = [
+const productos = [
   {
     id: 1,
     class: 'STAR WARS',
@@ -48,13 +48,13 @@ const productos git = [
   {
     id: 4,
     class: 'STAR WARS',
-    title: 'STORMTROOPER LIGHTSABER',
+    title: 'BABY YODA',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/star-wars/trooper-box.webp',
-    imageFront: '/img/star-wars/trooper-1.webp',
-    altBack: 'BABY YODA BLUEBALL',
-    altFront: 'BABY YODA BLUEBALL',
+    imageBack: '/img/star-wars/baby-yoda-box.webp',
+    imageFront: '/img/star-wars/baby-yoda-1.webp',
+    altBack: 'BABY YODA BOX',
+    altFront: 'FUNKO BABY YODA',
     barcode: 'STW0010004',
   },
   {
@@ -84,14 +84,14 @@ const productos git = [
   {
     id: 7,
     class: 'STAR WARS',
-    title: 'STORMTROOPER LIGHTSABER',
+    title: 'BOBBA FETH',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/star-wars/trooper-box.webp',
-    imageFront: '/img/star-wars/trooper-1.webp',
-    altBack: 'BABY YODA BLUEBALL',
-    altFront: 'BABY YODA BLUEBALL',
-    barcode: 'STW0010001',
+    imageBack: '/img/star-wars/bobbafeth-box.webp',
+    imageFront: '/img/star-wars/bobbafeth-1.webp',
+    altBack: 'BOBBA FETH BOX',
+    altFront: 'FUNKO BOBBA FETH',
+    barcode: 'STW0010007',
   },
   {
     id: 8,
@@ -152,6 +152,18 @@ const productos git = [
     altBack: 'VULPIX BOX',
     altFront: 'FUNKO VULPIX',
     barcode: 'STW0010011',
+  },
+  {
+    id: 13,
+    class: 'STAR WARS',
+    title: 'LUKE',
+    price: '$ 1799,99',
+    paymethod: '3 CUOTAS SIN INTERÉS',
+    imageBack: '/img/star-wars/luke-box.webp',
+    imageFront: '/img/star-wars/luke-1.webp',
+    altBack: 'LUKE BOX',
+    altFront: 'FUNKO LUKE',
+    barcode: 'STW0010013',
   },
 ];
 // script shop:
