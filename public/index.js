@@ -15,8 +15,8 @@ const productos = [
     title: 'STORMTROOPER LIGHTSABER',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/star-wars/trooper-box.webp',
-    imageFront: '/img/star-wars/trooper-1.webp',
+    imageBack: '../img/star-wars/trooper-box.webp',
+    imageFront: '../img/star-wars/trooper-1.webp',
     altBack: 'BABY YODA BLUEBALL',
     altFront: 'BABY YODA BLUEBALL',
     barcode: 'STW0010001',
@@ -27,8 +27,8 @@ const productos = [
     title: 'PIDGEOTTO',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/pokemon/pidgeotto-box.webp',
-    imageFront: '/img/pokemon/pidgeotto-1.webp',
+    imageBack: '../img/pokemon/pidgeotto-box.webp',
+    imageFront: '../img/pokemon/pidgeotto-1.webp',
     altBack: 'PIDGEOTTO',
     altFront: 'PIDGEOTTO',
     barcode: 'STW0010002',
@@ -39,8 +39,8 @@ const productos = [
     title: 'LUNA LOVEGOOD LION MASK',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/harry-potter/luna-box.webp',
-    imageFront: '/img/harry-potter/luna-1.webp',
+    imageBack: '../img/harry-potter/luna-box.webp',
+    imageFront: '../img/harry-potter/luna-1.webp',
     altBack: 'HARRY POTTER',
     altFront: 'HARRY POTTER',
     barcode: 'STW0010003',
@@ -51,8 +51,8 @@ const productos = [
     title: 'BABY YODA',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/star-wars/baby-yoda-box.webp',
-    imageFront: '/img/star-wars/baby-yoda-1.webp',
+    imageBack: '../img/star-wars/baby-yoda-box.webp',
+    imageFront: '../img/star-wars/baby-yoda-1.webp',
     altBack: 'BABY YODA BOX',
     altFront: 'FUNKO BABY YODA',
     barcode: 'STW0010004',
@@ -63,8 +63,8 @@ const productos = [
     title: 'CHARMANDER',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/pokemon/charmander-box.webp',
-    imageFront: '/img/pokemon/charmander-1.webp',
+    imageBack: '../img/pokemon/charmander-box.webp',
+    imageFront: '../img/pokemon/charmander-1.webp',
     altBack: 'CHARMANDER BOX',
     altFront: 'FUNKO CHARMANDER',
     barcode: 'STW0010005',
@@ -75,8 +75,8 @@ const productos = [
     title: 'HARRY POTTER',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/harry-potter/harry-box.webp',
-    imageFront: '/img/harry-potter/harry-1.webp',
+    imageBack: '../img/harry-potter/harry-box.webp',
+    imageFront: '../img/harry-potter/harry-1.webp',
     altBack: 'HARRY POTTER',
     altFront: 'HARRY POTTER',
     barcode: 'STW0010006',
@@ -87,8 +87,8 @@ const productos = [
     title: 'BOBBA FETH',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/star-wars/bobbafeth-box.webp',
-    imageFront: '/img/star-wars/bobbafeth-1.webp',
+    imageBack: '../img/star-wars/bobbafeth-box.webp',
+    imageFront: '../img/star-wars/bobbafeth-1.webp',
     altBack: 'BOBBA FETH BOX',
     altFront: 'FUNKO BOBBA FETH',
     barcode: 'STW0010007',
@@ -99,8 +99,8 @@ const productos = [
     title: 'DRAGONITE',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/pokemon/dragonite-box.webp',
-    imageFront: '/img/pokemon/dragonite-1.webp',
+    imageBack: '../img/pokemon/dragonite-box.webp',
+    imageFront: '../img/pokemon/dragonite-1.webp',
     altBack: 'DRAGONITE BOX',
     altFront: 'FUNKO DRAGONITE',
     barcode: 'STW0010008',
@@ -111,8 +111,8 @@ const productos = [
     title: 'HERMIONE',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/harry-potter/hermione-box.webp',
-    imageFront: '/img/harry-potter/hermione-1.webp',
+    imageBack: '../img/harry-potter/hermione-box.webp',
+    imageFront: '../img/harry-potter/hermione-1.webp',
     altBack: 'HERMIONE BOX',
     altFront: 'FUNKO HERMIONE',
     barcode: 'STW0010009',
@@ -123,8 +123,8 @@ const productos = [
     title: 'SNAPE PATRONUS',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/harry-potter/snape-patronus-box.webp',
-    imageFront: '/img/harry-potter/snape-patronus-1.webp',
+    imageBack: '../img/harry-potter/snape-patronus-box.webp',
+    imageFront: '../img/harry-potter/snape-patronus-1.webp',
     altBack: 'SNAPE PATRONUS BOX',
     altFront: 'FUNKO SNAPE PATRONUS',
     barcode: 'STW0010010',
@@ -135,8 +135,8 @@ const productos = [
     title: 'PIKACHU',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/pokemon/pikachu-box.webp',
-    imageFront: '/img/pokemon/pikachu-1.webp',
+    imageBack: '../img/pokemon/pikachu-box.webp',
+    imageFront: '../img/pokemon/pikachu-1.webp',
     altBack: 'PIKACHU BOX',
     altFront: 'FUNKO PIKACHU',
     barcode: 'STW0010011',
@@ -147,8 +147,8 @@ const productos = [
     title: 'VULPIX',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/pokemon/vulpix-box.webp',
-    imageFront: '/img/pokemon/vulpix-1.webp',
+    imageBack: '../img/pokemon/vulpix-box.webp',
+    imageFront: '../img/pokemon/vulpix-1.webp',
     altBack: 'VULPIX BOX',
     altFront: 'FUNKO VULPIX',
     barcode: 'STW0010011',
@@ -159,8 +159,8 @@ const productos = [
     title: 'LUKE',
     price: '$ 1799,99',
     paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/star-wars/luke-box.webp',
-    imageFront: '/img/star-wars/luke-1.webp',
+    imageBack: '../img/star-wars/luke-box.webp',
+    imageFront: '../img/star-wars/luke-1.webp',
     altBack: 'LUKE BOX',
     altFront: 'FUNKO LUKE',
     barcode: 'STW0010013',
@@ -174,28 +174,27 @@ function cargarProductos (){
   productos.forEach(producto  => {
 
     const li = document.createElement("li");
-    li.classList.add("producto");
     li.innerHTML = `
-    <article class="productos">
+    <article class="articulo">
      <a href="../pages/item.html">
         <div class="nuevo">Nuevo</div>
-        <picture>
+        <picture class="articulo__cover" >
         <img
           class="img-shop articulo__img--back"
-          src="../${productos.imageBack}"
-          alt="../${productos.altBack}"
+          src="${producto.imageBack}"
+          alt="${producto.altBack}"
         />
         <img
           class="img-shop articulo__img--front"
-          src="../${productos.imageFront}"
-          alt="../${productos.altFront}"
+          src="${producto.imageFront}"
+          alt="${producto.altFront}"
         />
       </picture>
       <div class="datos_articulo_container">
-        <p class="articulo_franquicia">${productos.class}</p>
-        <h4 class="articulo_titulo">${productos.title}</h4>
-        <p class="articulo_precio">${productos.price}</p>
-        <p class="articulo_cuotas">${productos.paymethod}</p>
+        <p class="articulo_franquicia">${producto.class}</p>
+        <h4 class="articulo_titulo">${producto.title}</h4>
+        <p class="articulo_precio">${producto.price}</p>
+        <p class="articulo_cuotas">${producto.paymethod}</p>
       </div>
       </a>
     </article>
