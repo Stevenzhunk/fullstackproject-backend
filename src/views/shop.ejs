@@ -114,9 +114,9 @@
     <section class="shop">
       <ul class="shop_lista">
         <li>
-          <% productos.forEach(producto => { %>
+          <% productos.forEach(card => { %>
             <li> <%- include('partials/card.ejs', {
-              producto: producto }) %> </li>  <% }) %>
+              card: card }) %> </li>  <% }) %>
         </li>
       </ul>
     </section>   
