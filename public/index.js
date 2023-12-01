@@ -167,7 +167,47 @@ const productos = [
   },
 ];
 // script shop:
+const contenedorProductos = document.querySelector("#contenedor_productos");
 
+function cargarProductos (){
+
+  productos.forEach(producto  => {
+
+    const li = document.createElement("li");
+    li.classList.add("producto");
+    li.innerHTML = `
+    <article class="productos">
+     <a href="../pages/item.html">
+        <div class="nuevo">Nuevo</div>
+        <picture>
+        <img
+          class="img-shop articulo__img--back"
+          src="../${productos.imageBack}"
+          alt="../${productos.altBack}"
+        />
+        <img
+          class="img-shop articulo__img--front"
+          src="../${productos.imageFront}"
+          alt="../${productos.altFront}"
+        />
+      </picture>
+      <div class="datos_articulo_container">
+        <p class="articulo_franquicia">${productos.class}</p>
+        <h4 class="articulo_titulo">${productos.title}</h4>
+        <p class="articulo_precio">${productos.price}</p>
+        <p class="articulo_cuotas">${productos.paymethod}</p>
+      </div>
+      </a>
+    </article>
+    `;
+
+    contenedorProductos.append(li);
+
+  })
+
+}
+
+cargarProductos();
 
 //script botones item:
 
