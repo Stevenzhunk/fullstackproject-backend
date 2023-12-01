@@ -4,6 +4,8 @@ const mainRouter = express.Router();
 
 const controller = require("../controllers/mainController")
 
+mainRouter.get("/", controller.index );
+
 mainRouter.get("/home", controller.index );
 
 mainRouter.get("/contact", controller.mainContact );
