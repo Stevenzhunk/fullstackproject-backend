@@ -167,7 +167,7 @@ const shopHome = (req, res) => {
 };
 
 const shopItem = (req, res) => {
-  // const { id } = req.params;
+  const { id } = req.params;
   // const productos = [
   //   {
   //     id: 1,

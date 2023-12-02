@@ -49,7 +49,7 @@
     <div class="ultimos_lanzamientos glide__track" data-glide-el="track">
       <ul class="lanzamientos_lista glide__slides">
         <% productos.forEach(producto => { %>
-          <li> <%-include('partials/cardDynamic.ejs', { producto: producto }) %> </li><% }) %>
+          <%-include('partials/cardDynamic.ejs', { producto: producto }) %> <% }) %>
       </ul>
     </div>
     <div class="glide__arrows" data-glide-el="controls">
