@@ -1,4 +1,3 @@
-
 const productos = [
   {
     id: 1,
@@ -160,10 +159,10 @@ const productos = [
 
 const path = require('path');
 const shopHome = (req, res) => {
-  res.render('shop',{    
+  res.render('shop', {
     layout: path.join(__dirname, '../views/layouts/layout.ejs'),
     productos,
-  });  
+  });
 };
 
 const shopItem = (req, res) => {
