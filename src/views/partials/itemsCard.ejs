@@ -1,21 +1,36 @@
 <article class="section__content card__cart">
   <div class="section__item cart cart_column_1">
-    <img class="image__miniature" src= "<%=producto.imageFront %>"" alt=
-    "<%=producto.altBack %>"" />
+    <img
+      class="image__miniature"
+      src="<%=producto.imageFront %>"
+      alt="<%=producto.altBack %>"
+    />
     <div class="item__text_content">
       <div class="item__name"><%=producto.title %></div>
       <div class="item__category"><%=producto.class%></div>
-      <div class="item__unit_price">precio unitario:<%=producto.price %></div>
+      <div class="item__unit_price">precio unitario: $</div>
+      <div class="item__unit_price" id="precio_cart_<%=producto.id %>">
+        <%=producto.price %>
+      </div>
     </div>
   </div>
   <div class="section__quantity cart_column_2">
-    <div class="quantity__number" id="cantidad_babyyoda_cart">1</div>
+    <div class="quantity__number" id="cantidad_cart_<%=producto.id %>">1</div>
     <div>
-      <div class="quantity__icon" id="boton_aumentar_babyyoda_cart">+</div>
-      <div class="quantity__icon" id="boton_disminuir_babyyoda_cart">-</div>
+      <div class="quantity__icon" id="boton_aumentar_cart_<%=producto.id %>">
+        +
+      </div>
+      <div class="quantity__icon" id="boton_disminuir_cart_<%=producto.id %>">
+        -
+      </div>
     </div>
   </div>
-  <div class="quantity__amount cart cart_column_3"><%=producto.price%></div>
+  <div
+    class="quantity__amount cart cart_column_3"
+    id="monto_cart_<%=producto.id %>"
+  >
+    <%=producto.price%>
+  </div>
   <div class="icon__delete cart">
     <span class="material-symbols-outlined"> cancel </span>
   </div>
