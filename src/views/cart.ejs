@@ -28,6 +28,8 @@
 
     <!-- Aca tiene que ir el ForEarch pero no me salio -->
 
+    <% productos.forEach(producto => { %> <%-
+    include('./partials/itemsCard.ejs', { producto: producto }) %> <% }) %>
   </section>
   <section class="section__resume">
     <article class="section__title borde_rojo title_resume">resumen</article>

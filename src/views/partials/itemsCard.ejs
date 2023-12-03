@@ -1,29 +1,22 @@
-    <article class="section__content card__cart">
-        <div class="section__item cart cart_column_1">
-          <img
-            class="image__miniature"
-            src= "<%=productos.imageFront %>""
-            alt= "<%=productos.altBack %>""
-          />
-          <div class="item__text_content">
-            <div class="item__name"><%=productos.title %></div>
-            <div class="item__category"><%=productos.class%></div>
-            <div class="item__unit_price">precio unitario:<%=productos.price %></div>
-          </div>
-        </div>
-        <div class="section__quantity cart_column_2">
-          <div class="quantity__number" id="cantidad_babyyoda_cart">1</div>
-          <div>
-            <div class="quantity__icon" id="boton_aumentar_babyyoda_cart">
-              +
-            </div>
-            <div class="quantity__icon" id="boton_disminuir_babyyoda_cart">
-              -
-            </div>
-          </div>
-        </div>
-        <div class="quantity__amount cart cart_column_3"><%=productos.price%></div>
-        <div class="icon__delete cart">
-          <span class="material-symbols-outlined"> cancel </span>
-        </div>
-    </article>
+<article class="section__content card__cart">
+  <div class="section__item cart cart_column_1">
+    <img class="image__miniature" src= "<%=producto.imageFront %>"" alt=
+    "<%=producto.altBack %>"" />
+    <div class="item__text_content">
+      <div class="item__name"><%=producto.title %></div>
+      <div class="item__category"><%=producto.class%></div>
+      <div class="item__unit_price">precio unitario:<%=producto.price %></div>
+    </div>
+  </div>
+  <div class="section__quantity cart_column_2">
+    <div class="quantity__number" id="cantidad_babyyoda_cart">1</div>
+    <div>
+      <div class="quantity__icon" id="boton_aumentar_babyyoda_cart">+</div>
+      <div class="quantity__icon" id="boton_disminuir_babyyoda_cart">-</div>
+    </div>
+  </div>
+  <div class="quantity__amount cart cart_column_3"><%=producto.price%></div>
+  <div class="icon__delete cart">
+    <span class="material-symbols-outlined"> cancel </span>
+  </div>
+</article>
