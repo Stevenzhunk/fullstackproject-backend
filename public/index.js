@@ -38,9 +38,60 @@ if (document.getElementById("cantidad_item")) {
   console.log("elemento no existe en pagina");
 }
 
+/* SCRIPTS CART */
+
+//script nro de items y montos iniciales en carrito:
+
+const cantidades_cart_nodelist = Array.from(
+  document.querySelectorAll(".quantity__number")
+);
+const cantidades_cart_array = cantidades_cart_nodelist.map((cantidad) => {
+  return cantidad.textContent;
+});
+let cantidad_items_cart = cantidades_cart_array.length;
+
+const montos_cart_nodelist = Array.from(
+  document.querySelectorAll(".quantity__amount")
+);
+const montos_cart_array = montos_cart_nodelist.map((monto) => {
+  return monto.textContent;
+});
+
+console.log(montos_cart_array);
+
+/*script resumen cart: */
+
+//cantidad:
+let cantidades_cart = 0;
+cantidades_cart_array.forEach((num) => {
+  cantidades_cart += parseInt(num);
+});
+
+console.log(cantidades_cart);
+
+const cantidad_resumen_cart = document.getElementById("cantidad_resumen_cart");
+cantidad_resumen_cart.textContent = String(cantidades_cart);
+
+//monto resumen:
+
+let montos_cart = 0;
+montos_cart_array.forEach((num) => {
+  montos_cart += parseFloat(num);
+});
+
+console.log(montos_cart.toFixed(2));
+
+const monto_resumen_subtotal_cart = document.getElementById(
+  "monto_resumen_subtotal"
+);
+monto_resumen_subtotal_cart.textContent = String(montos_cart.toFixed(2));
+
+const monto_resumen_total_cart = document.getElementById("monto_resumen_total");
+monto_resumen_total_cart.textContent = String(montos_cart.toFixed(2));
+
 //script botones cart:
 
-for (let id = 1; id <= 13; id++) {
+for (let id = 1; id <= cantidad_items_cart; id++) {
   if (document.getElementById(`cantidad_cart_${id}`)) {
     document
       .getElementById(`boton_aumentar_cart_${id}`)
@@ -81,8 +132,6 @@ for (let id = 1; id <= 13; id++) {
       });
   }
 }
-
-//script resumen cart:
 
 /*ocultar y mostrar menu desplegable*/
 document.addEventListener("DOMContentLoaded", function () {
