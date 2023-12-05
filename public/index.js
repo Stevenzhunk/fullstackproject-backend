@@ -107,6 +107,34 @@ for (let id = 1; id <= cantidad_items_cart; id++) {
         m = p * q;
         cantidad_cart.textContent = String(q);
         monto_cart.textContent = String(m);
+
+        //efecto en Resumen:
+
+        const cantidad_resumen_cart_preclick_pos = document.getElementById(
+          "cantidad_resumen_cart"
+        );
+        let qtot = parseInt(cantidad_resumen_cart_preclick_pos.textContent);
+        qtot++;
+        cantidad_resumen_cart_preclick_pos.textContent = String(qtot);
+
+        const monto_resumen_subtotal_cart_preclick_pos =
+          document.getElementById("monto_resumen_subtotal");
+        let sub = parseFloat(
+          monto_resumen_subtotal_cart_preclick_pos.textContent
+        );
+        sub += p;
+        monto_resumen_subtotal_cart_preclick_pos.textContent = String(
+          sub.toFixed(2)
+        );
+
+        const monto_resumen_total_cart_preclick_pos = document.getElementById(
+          "monto_resumen_total"
+        );
+        let tot = parseFloat(monto_resumen_total_cart_preclick_pos.textContent);
+        tot += p;
+        monto_resumen_total_cart_preclick_pos.textContent = String(
+          tot.toFixed(2)
+        );
       });
 
     document
@@ -128,6 +156,36 @@ for (let id = 1; id <= cantidad_items_cart; id++) {
           m = p * q;
           cantidad_cart.textContent = String(q);
           monto_cart.textContent = String(m);
+
+          //efecto en Resumen:
+
+          const cantidad_resumen_cart_preclick_neg = document.getElementById(
+            "cantidad_resumen_cart"
+          );
+          let qtot = parseInt(cantidad_resumen_cart_preclick_neg.textContent);
+          qtot--;
+          cantidad_resumen_cart_preclick_neg.textContent = String(qtot);
+
+          const monto_resumen_subtotal_cart_preclick_neg =
+            document.getElementById("monto_resumen_subtotal");
+          let sub = parseFloat(
+            monto_resumen_subtotal_cart_preclick_neg.textContent
+          );
+          sub -= p;
+          monto_resumen_subtotal_cart_preclick_neg.textContent = String(
+            sub.toFixed(2)
+          );
+
+          const monto_resumen_total_cart_preclick_neg = document.getElementById(
+            "monto_resumen_total"
+          );
+          let tot = parseFloat(
+            monto_resumen_total_cart_preclick_neg.textContent
+          );
+          tot -= p;
+          monto_resumen_total_cart_preclick_neg.textContent = String(
+            tot.toFixed(2)
+          );
         }
       });
   }
