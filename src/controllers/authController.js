@@ -1,5 +1,7 @@
 const getLogin = (req, res) => {
-  res.send('<h1>Soy el Login Auth</h1>');
+  res.render('login', {
+    layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
+  });
 };
 
 const createLogin = (req, res) => {
@@ -7,7 +9,9 @@ const createLogin = (req, res) => {
 };
 
 const getRegister = (req, res) => {
-  res.send('<h1>Soy el Register Auth</h1>');
+  res.render('register', {
+    layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
+  });
 };
 
 const createRegister = (req, res) => {
