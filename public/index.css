@@ -1,6 +1,6 @@
 /*fonts*/
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;900&display=swap");
 
 /* margen fixeado*/
 * {
@@ -157,7 +157,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/img/funkos-banner.webp');
+  background-image: url("/img/funkos-banner.webp");
   background-size: cover;
   z-index: -1;
   border: 1px solid transparent;
@@ -279,7 +279,7 @@ main {
 }
 
 /*secciones del principal*/
-.boton-front {
+/* .boton-front {
   display: grid;
   border-radius: 100px;
   background: #30343f;
@@ -307,14 +307,52 @@ main {
   line-height: 28.18px;
   color: #4f4f4f;
   margin: 0 0 10px;
+} */
+.collection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.starwars,
-.pokemon,
-.harryPotter {
+.collection:nth-child(2) .collection__cover{
+  order:-1;
+}
+
+.collection__content{
   display: flex;
-  justify-content: center;
-  align-content: center;
+  flex-direction: column;
+  gap:var(--spacing-28);
+  align-items: start;
 }
+
+.collection__title{
+  font-family: var(--alternative-font);
+  font-size: var(--font-jumbo);
+  font-weight: var(--weight-medium);
+  text-transform: capitalize;
+}
+
+.collection__text{
+  font-family: var(--alternative-font);
+  font-size: var(--font-large);
+  font-weight: var(--weight-small);
+  border-bottom:var(--spacing-2) solid var(--primary-solid);
+}
+
+.collection__link{
+  display: inline-block;
+  font-size: var(--font-medium);
+  background-color: var(--dark-bg-solid);
+  color: var(--light-font-solid);
+  padding: var(--spacing-16) var(--spacing-36);
+  border-radius: 50px;
+  transition:background .3s ease-in-out
+}
+.collection__link:hover{
+  background-color: var(--primary-solid);
+}
+
 /* Seccion ultimos lanzamientos - slider*/
 
 .lanzamientos h2 {
@@ -737,8 +775,8 @@ se me volvía loco el texto si usaba todo igual a .placeholder buscador - VER */
   text-align: center;
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -940,9 +978,8 @@ input[type='number']::-webkit-outer-spin-button {
   box-shadow: 0 1px 4px var(--dark-300);
   margin-right: 0px;
   border-style: none;
-
 }
-.red__button_pay:hover{
+.red__button_pay:hover {
   cursor: pointer;
 }
 .table__amount {
