@@ -26,19 +26,19 @@
       <div class="void_cart">X X X</div>
     </article>
 
-    <!-- Aca tiene que ir el ForEarch pero no me salio -->
-
+    <% productos.forEach(producto => { %> <%-
+    include('./partials/itemsCard.ejs', { producto: producto }) %> <% }) %>
   </section>
   <section class="section__resume">
     <article class="section__title borde_rojo title_resume">resumen</article>
     <table class="resume__table card__cart card_resume">
       <tr>
         <td class="table__text">cantidad de elementos</td>
-        <td class="table__amount">3</td>
+        <td class="table__amount" id="cantidad_resumen_cart">3</td>
       </tr>
       <tr>
         <td class="table__text">Subtotal</td>
-        <td class="table__amount">$5399.97</td>
+        <td class="table__amount" id="monto_resumen_subtotal">5399.97</td>
       </tr>
       <tr>
         <td class="table__text borde_rojo">envio</td>
@@ -46,7 +46,7 @@
       </tr>
       <tr>
         <td class="table__text">total</td>
-        <td class="table__amount">$5399.97</td>
+        <td class="table__amount" id="monto_resumen_total">5399.97</td>
       </tr>
     </table>
     <input type="submit" class="red__button_pay" value="ir a pagar" />

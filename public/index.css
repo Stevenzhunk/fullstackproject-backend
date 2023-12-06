@@ -705,7 +705,7 @@ iconify-icon {
 /*Aca comienza lo del buscador del SHOP - ASIDE*/
 
 .aside_shop {
-  padding-left: 40px;
+  /* padding-left: 40px; */
   width: 20%;
 }
 
@@ -783,11 +783,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .filtrar_seleccion {
   margin-left: 20px;
-  color: var(--black-solid); /* original: #111111 */
-  font-size: var(--font-medium); /* original: 18px */
-  font-family: var(--base-font); /* original: Inter */
-  font-weight: var(--weight-medium);
-  word-wrap: break-word;
+  color: var(--black-solid); /* original: #111111 */;
+  
 }
 
 .my_checkbox {
