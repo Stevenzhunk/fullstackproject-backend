@@ -188,8 +188,7 @@ path = require('path');
 
 const index = (req, res) => {
   res.render('index',{
-    layout: path.join(__dirname, '../views/layouts/layout.ejs'),
-    productos,
+    productos, categories
   });
 };
 
