@@ -207,4 +207,16 @@
     .red__button_pay{
       width: 70%;
     }
+    .collection {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+    }
+    .collection:nth-child(1) .collection__cover{
+      order:-1;
+    }
+    .collection:nth-child(3) .collection__cover{
+      order:-1;
+    }
   }

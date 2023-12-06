@@ -14,32 +14,33 @@ import authRouter from "./src/routes/authRoute.js";
 
 //importacion de módulos con sintaxis CommonJS:
 
-const express = require('express');
-const path = require('path');
-const morgan = require('morgan');
-const colors = require('colors');
-const dotenv = require('dotenv');
-const connectDB = require('./src/config/db.js');
-const mainRouter = require('./src/routes/mainRoute.js');
-const adminRouter = require('./src/routes/adminRoute.js');
-const shopRouter = require('./src/routes/shopRoute');
-const authRouter = require('./src/routes/authRoute.js');
-const expressLayouts = require('express-ejs-layouts');
-
+const express = require("express");
+const path = require("path");
+const morgan = require("morgan");
+const colors = require("colors");
+const dotenv = require("dotenv");
+const connectDB = require("./src/config/db.js");
+const mainRouter = require("./src/routes/mainRoute.js");
+const adminRouter = require("./src/routes/adminRoute.js");
+const shopRouter = require("./src/routes/shopRoute");
+const authRouter = require("./src/routes/authRoute.js");
+const expressLayouts = require("express-ejs-layouts");
+require("dotenv").config();
 //rest obj init
 const app = express();
+const sequelize = require ('./src/models/connection');
 
 // Acces CSS, JPG to public
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 //seteo Template Engine (EJS)
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '/src/views'));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/src/views"));
 
 //seteo express Layouts
 app.use(expressLayouts);
 // app.set('layout', '/src/views/layouts');
-app.set('layout', path.join(__dirname, 'src/views/layouts/layout'));
+app.set("layout", path.join(__dirname, "src/views/layouts/layout"));
 
 //Process env
 dotenv.config();
@@ -48,23 +49,30 @@ dotenv.config();
 // app.use(express.static('public'));
 
 //Logs Morgan dev
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
 //routes Main, Admin, Shop y Auth
-app.use('/', mainRouter);
-app.use('/admin', adminRouter);
-app.use('/shop', shopRouter);
-app.use('/auth', authRouter);
+app.use("/", mainRouter);
+app.use("/admin", adminRouter);
+app.use("/shop", shopRouter);
+app.use("/auth", authRouter);
 
 app.use((req, res, next) => {
-  res.status(404).send('La pagina no existe');
+  res.status(404).send("La pagina no existe");
 });
 
 //port
 const PORT = process.env.PORT || 3000;
 
 //listen
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+try{
+  await sequelize.authenticate()
+}catch(error){
+console.log(error);
+}
+
+
   console.log(`server is runing on port ${PORT}`.bgCyan.white);
 });
 

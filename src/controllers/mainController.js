@@ -1,3 +1,30 @@
+const categories = [
+  {
+    id: 1,
+    name: "Star Wars & The Mandalorian",
+    description:
+      "Disfruta de una saga que sigue agregando personajes a su colección",
+    cover: "/img/star-wars/baby-yoda-1.webp",
+    altCover: "Bebe - Yoda",
+  },
+  {
+    id: 2,
+    name: "Pokemon Indigo",
+    description:
+      "Atrapa todos los que puedas y disfruta de una colección llena de amigos.",
+    cover: "/img/pokemon/vulpix-1.webp",
+    altCover: "Vulpix",
+  },
+  {
+    id: 3,
+    name: "Harry Poter",
+    description: "Revive los recuerdos de una saga llena de magia y encanto.",
+    cover: "./img/harry-potter/snape-patronus-1.webp",
+    altCover: "Snape Patronus",
+  },
+];
+
+
 const productos = [
   {
     id: 1,
@@ -161,21 +188,20 @@ path = require('path');
 
 const index = (req, res) => {
   res.render('index',{
-    layout: path.join(__dirname, '../views/layouts/layout.ejs'),
-    productos,
+    productos, categories
   });
 };
 
 const mainContact = (req, res) => {
-  res.render('contact');
+  res.render("contact");
 };
 
 const mainAbout = (req, res) => {
-  res.render('about');
+  res.render("about");
 };
 
 const mainFaqs = (req, res) => {
-  res.render('faqs');
+  res.render("faqs");
 };
 
 module.exports = {

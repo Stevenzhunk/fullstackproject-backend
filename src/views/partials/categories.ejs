@@ -1,0 +1,12 @@
+<section class="collection" >
+    <article class="collection__content">
+      <div class="collection__title"><%= categorie.name %></div>
+      <p class="collection__text">
+        <%= categorie.description %>
+      </p>
+      <a href="/shop" class="collection__link">VER COLECCIÓN</a>
+    </article>
+    <picture class="collection__cover">
+      <img src="<%= categorie.cover%>"  alt="<%= categorie.altCover%>" />
+    </picture>
+  </section>
