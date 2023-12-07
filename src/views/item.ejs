@@ -48,8 +48,8 @@
     <h2 class="lanzamientos__titulo">PRODUCTOS RELACIONADOS</h2>
     <div class="ultimos_lanzamientos glide__track" data-glide-el="track">
       <ul class="lanzamientos_lista glide__slides">
-        <% productos.forEach(producto => { %>
-        <%-include('partials/cardDynamic.ejs', { producto: producto }) %> <% })
+        <% productos.forEach(card => { %>
+        <%-include('partials/card.ejs', { card: card }) %> <% })
         %>
       </ul>
     </div>
