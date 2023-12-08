@@ -331,7 +331,7 @@ const shopItem = (req, res) => {
   //   },
   // ];
   res.render("item", { itemId: id, productos });
-  console.log(`<h1>Soy el item de shop Nro : ${id} <h1>`);
+  
 };
 
 const addItem = (req, res) => {
