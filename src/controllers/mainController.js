@@ -1,4 +1,4 @@
-const categories = [
+const licences = [
   {
     id: 1,
     name: "Star Wars & The Mandalorian",
@@ -188,7 +188,7 @@ path = require('path');
 
 const index = (req, res) => {
   res.render('index',{
-    productos, categories
+    productos, licences
   });
 };
 

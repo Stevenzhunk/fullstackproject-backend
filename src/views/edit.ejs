@@ -16,10 +16,11 @@
             </select>
             <label for="licencia">Licencia:</label>
             <select name="" id="licencia">
-              <option value="value1" selected>Naruto Shippuden</option>
-              <option value="value2">Star Wars</option>
-              <option value="value3">Pokemon</option>
-              <option value="value4">Harry Potter</option>
+              <% licences.forEach( licence => { %>
+                <option value="value2"><%=licence.name%></option>
+
+              <%}) %>
+            
             </select>
           </div>
           <br />
@@ -28,15 +29,15 @@
             <label for="">Nombre del producto:</label>
             <input
               class="borde_rojo input_texto input_grande"
-              placeholder="Escribe norma del producto"
-              value="Kakashi Hatake Shippuden Saga"
+              placeholder="Escribe nombre del producto"
+              value="<%= productos[idInt].title %>"
             />
           </div>
           <br />
           <br />
           <div class="3renglon">
             <textarea name="" id="" placeholder="Descripción del producto">
-  Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocando chidori.
+  <%=productos[idInt].description%>
             </textarea>
           </div>
           <br />
@@ -49,21 +50,21 @@
               name=""
               id=""
               placeholder="SSK111AB001"
-              value="NAR001012"
+              value="<%= productos[idInt].barcode %>"
             />
-            <label for="">Precio:</label>
+            <label for="">Precio: $</label>
             <input
               type="number"
               class="borde_rojo input_texto input_mediano"
               placeholder="$ 0.000,00"
-              value="1799"
+              value="<%= productos[idInt].price %>"
             />
             <label for="">Stock:</label>
             <input
               type="number"
               class="borde_rojo input_texto input_chico"
               placeholder="0"
-              value="10"
+              value="<%= productos[idInt].stock %>"
             />
           </div>
           <br />
@@ -74,12 +75,12 @@
               type="number"
               class="borde_rojo input_texto input_chico"
               placeholder="0%"
-              value="10"
+              value="<%= productos[idInt].discount %>"
             />
             <label for="">Cuotas:</label>
             <select name="" id="">
-              <option value="" disabled selected hidden>
-                3 Cuotas sin interes
+              <option value="<%= productos[idInt].paymethod %>" disabled selected hidden>
+                
               </option>
               <option value="value1">3 Cuotas sin interes</option>
               <option value="value2" selected>6 Cuotas sin interes</option>
@@ -99,8 +100,9 @@
             <div class="imagenesYTexto">
               <picture>
                 <img
-                  src="/img/star-wars/baby-yoda-1.webp"
+                  src="<%= productos[idInt].imageFront %>"
                   class="imagenesfiguras borde_rojo"
+                  alt= "Frente"
                 />
               </picture>
               <p>Frente</p>
@@ -108,9 +110,9 @@
             <div class="imagenesYTexto">
               <picture>
                 <img
-                  src="/img/star-wars/baby-yoda-box.webp"
+                  src="<%= productos[idInt].imageBack %>"
                   class="imagenesfiguras borde_rojo"
-                  alt=""
+                  alt="Dorso"
                 />
               </picture>
               <p>Dorso</p>
