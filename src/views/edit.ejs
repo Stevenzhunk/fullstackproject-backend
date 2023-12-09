@@ -1,127 +1,126 @@
-<%- contentFor('title') %> Editar Item
+<%- contentFor('title') %> Editar Item <%- contentFor('styles') %> <%-
+contentFor('body') %>
+<main class="main_edit">
+  <h1>EDITAR ITEM</h1>
+  <br />
+  <br />
+  <form action="">
+    <div class="renglon1">
+      <label for="categoria">Categoria:</label>
+      <select name="" id="categoria">
+        <option value="value1" selected>Figuras</option>
+      </select>
+      <label for="licencia">Licencia:</label>
+      <select name="" id="licencia">
+        <% licences.forEach( licence => { %>
+        <option value="value2"><%=licence.name%></option>
 
-<%- contentFor('styles') %>
-
-
-<%- contentFor('body') %>
-    <main class="main_edit">
-        <h1>EDITAR ITEM</h1>
-        <br />
-        <br />
-        <form action="">
-          <div class="renglon1">
-            <label for="categoria">Categoria:</label>
-            <select name="" id="categoria">
-              <option value="value1" selected>Figuras</option>
-            </select>
-            <label for="licencia">Licencia:</label>
-            <select name="" id="licencia">
-              <% licences.forEach( licence => { %>
-                <option value="value2"><%=licence.name%></option>
-
-              <%}) %>
-            
-            </select>
-          </div>
-          <br />
-          <br />
-          <div class="renglon2">
-            <label for="">Nombre del producto:</label>
-            <input
-              class="borde_rojo input_texto input_grande"
-              placeholder="Escribe nombre del producto"
-              value="<%= productos[idInt].title %>"
-            />
-          </div>
-          <br />
-          <br />
-          <div class="3renglon">
-            <textarea name="" id="" placeholder="Descripción del producto">
-  <%=productos[idInt].description%>
-            </textarea>
-          </div>
-          <br />
-          <br />
-          <div class="4renglon">
-            <label for="">SKU:</label>
-            <input
-              type="text"
-              class="borde_rojo input_texto input_mediano"
-              name=""
-              id=""
-              placeholder="SSK111AB001"
-              value="<%= productos[idInt].barcode %>"
-            />
-            <label for="">Precio: $</label>
-            <input
-              type="number"
-              class="borde_rojo input_texto input_mediano"
-              placeholder="$ 0.000,00"
-              value="<%= productos[idInt].price %>"
-            />
-            <label for="">Stock:</label>
-            <input
-              type="number"
-              class="borde_rojo input_texto input_chico"
-              placeholder="0"
-              value="<%= productos[idInt].stock %>"
-            />
-          </div>
-          <br />
-          <br />
-          <div class="5renglon">
-            <label for="">Descuento</label>
-            <input
-              type="number"
-              class="borde_rojo input_texto input_chico"
-              placeholder="0%"
-              value="<%= productos[idInt].discount %>"
-            />
-            <label for="">Cuotas:</label>
-            <select name="" id="">
-              <option value="<%= productos[idInt].paymethod %>" disabled selected hidden>
-                
-              </option>
-              <option value="value1">3 Cuotas sin interes</option>
-              <option value="value2" selected>6 Cuotas sin interes</option>
-              <option value="value3">12 Cuotas sin interes</option>
-              <option value="value4">18 Cuotas sin interes</option>
-            </select>
-          </div>
-          <br />
-          <br />
-          <div class="6renglon">
-            <label for="">Imagenes:</label>
-            <input type="file" name="" id="" />
-          </div>
-          <br />
-          <br />
-          <div class="figuras_imagenes">
-            <div class="imagenesYTexto">
-              <picture>
-                <img
-                  src="<%= productos[idInt].imageFront %>"
-                  class="imagenesfiguras borde_rojo"
-                  alt= "Frente"
-                />
-              </picture>
-              <p>Frente</p>
-            </div>
-            <div class="imagenesYTexto">
-              <picture>
-                <img
-                  src="<%= productos[idInt].imageBack %>"
-                  class="imagenesfiguras borde_rojo"
-                  alt="Dorso"
-                />
-              </picture>
-              <p>Dorso</p>
-            </div>
-          </div>
-          <br />
-          <br />
-          <input type="submit" class="boton_rojo" value="Modificar Producto" />
-        </form>
-      </main>
+        <%}) %>
+      </select>
+    </div>
+    <br />
+    <br />
+    <div class="renglon2">
+      <label for="">Nombre del producto:</label>
+      <input
+        class="borde_rojo input_texto input_grande"
+        placeholder="Escribe nombre del producto"
+        value="<%= productos[idInt].product_name %>"
+      />
+    </div>
+    <br />
+    <br />
+    <div class="3renglon">
+      <textarea name="" id="" placeholder="Descripción del producto">
+  <%=productos[idInt].product_description%>
+            </textarea
+      >
+    </div>
+    <br />
+    <br />
+    <div class="4renglon">
+      <label for="">SKU:</label>
+      <input
+        type="text"
+        class="borde_rojo input_texto input_mediano"
+        name=""
+        id=""
+        placeholder="SSK111AB001"
+        value="<%= productos[idInt].sku %>"
+      />
+      <label for="">Precio: $</label>
+      <input
+        type="number"
+        class="borde_rojo input_texto input_mediano"
+        placeholder="$ 0.000,00"
+        value="<%= productos[idInt].price %>"
+      />
+      <label for="">Stock:</label>
+      <input
+        type="number"
+        class="borde_rojo input_texto input_chico"
+        placeholder="0"
+        value="<%= productos[idInt].stock %>"
+      />
+    </div>
+    <br />
+    <br />
+    <div class="5renglon">
+      <label for="">Descuento</label>
+      <input
+        type="number"
+        class="borde_rojo input_texto input_chico"
+        placeholder="0%"
+        value="<%= productos[idInt].discount %>"
+      />
+      <label for="">Cuotas:</label>
+      <select name="" id="">
+        <option
+          value="<%= productos[idInt].dues %>"
+          disabled
+          selected
+          hidden
+        ></option>
+        <option value="value1">3 Cuotas sin interes</option>
+        <option value="value2" selected>6 Cuotas sin interes</option>
+        <option value="value3">12 Cuotas sin interes</option>
+        <option value="value4">18 Cuotas sin interes</option>
+      </select>
+    </div>
+    <br />
+    <br />
+    <div class="6renglon">
+      <label for="">Imagenes:</label>
+      <input type="file" name="" id="" />
+    </div>
+    <br />
+    <br />
+    <div class="figuras_imagenes">
+      <div class="imagenesYTexto">
+        <picture>
+          <img
+            src="<%= productos[idInt].image_front %>"
+            class="imagenesfiguras borde_rojo"
+            alt="Frente"
+          />
+        </picture>
+        <p>Frente</p>
+      </div>
+      <div class="imagenesYTexto">
+        <picture>
+          <img
+            src="<%= productos[idInt].image_back %>"
+            class="imagenesfiguras borde_rojo"
+            alt="Dorso"
+          />
+        </picture>
+        <p>Dorso</p>
+      </div>
+    </div>
+    <br />
+    <br />
+    <input type="submit" class="boton_rojo" value="Modificar Producto" />
+  </form>
+</main>
 
 <%- contentFor('scripts') %>
