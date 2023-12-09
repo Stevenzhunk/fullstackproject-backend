@@ -5,20 +5,20 @@
       <picture class="articulo__cover">
         <img
           class="articulo__img--back"
-          src="<%= producto.imageBack %>"
-          alt="<%= producto.altBack %>"
+          src="<%= producto.image_back %>"
+          alt="<%= producto.product_name %>"
         />
         <img
           class="articulo__img--front"
-          src="<%= producto.imageFront %>"
-          alt="<%= producto.altFront %>"
+          src="<%= producto.image_front %>"
+          alt="<%= producto.product_name %>"
         />
       </picture>
       <div>
-        <p class="articulo_franquicia"><%= producto.class %></p>
-        <h4 class="articulo_titulo"><%= producto.title %></h4>
+        <p class="articulo_franquicia"><%= producto.license_id %></p>
+        <h4 class="articulo_titulo"><%= producto.product_name %></h4>
         <p class="articulo_precio">$&nbsp;<%= producto.price %></p>
-        <p class="articulo_cuotas"><%= producto.paymethod %></p>
+        <p class="articulo_cuotas"><%= producto.dues %></p>
       </div>
     </a>
   </article>

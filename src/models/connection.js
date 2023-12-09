@@ -1,5 +1,5 @@
-require('dotenv').config();
-const { Sequelize } = require('sequelize');
+require("dotenv").config();
+const { Sequelize } = require("sequelize");
 
 const Database = process.env.LOCAL_DATABASE;
 const localUser = process.env.LOCAL_USER;
@@ -8,7 +8,7 @@ const host = process.env.LOCAL_HOST;
 
 const sequelize = new Sequelize(Database, localUser, passwordData, {
   host: host,
-  dialect: 'mysql',
+  dialect: "mysql",
 });
 
 console.log(`variables: Database - ${Database}`);

@@ -1,9 +1,9 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('./connection');
-const bcryptjs = require('bcryptjs');
+const { DataTypes } = require("sequelize");
+const sequelize = require("./connection");
+const bcryptjs = require("bcryptjs");
 
 const User = sequelize.define(
-  'User',
+  "User",
   {
     name: {
       type: DataTypes.STRING(16),
@@ -38,8 +38,10 @@ User.beforeSave(async (user, options) => {
   user.password = hash;
 });
 
-(async () => {
-  await sequelize.sync();
-})();
+// (async () => {
+//   await sequelize.sync();
+//   //await sequelize.sync({ alter: true });
+//   //await sequelize.sync({ force: true });
+// })();
 
 module.exports = User;

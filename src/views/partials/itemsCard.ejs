@@ -2,12 +2,12 @@
   <div class="section__item cart cart_column_1">
     <img
       class="image__miniature"
-      src="<%=producto.imageFront %>"
-      alt="<%=producto.altBack %>"
+      src="<%=producto.image_front %>"
+      alt="<%=producto.product_name %>"
     />
     <div class="item__text_content">
-      <div class="item__name"><%=producto.title %></div>
-      <div class="item__category"><%=producto.class%></div>
+      <div class="item__name"><%=producto.product_name %></div>
+      <div class="item__category"><%=producto.license_id%></div>
       <div class="item__unit_price">precio unitario: $</div>
       <div class="item__unit_price" id="precio_cart_<%=producto.id %>">
         <%=producto.price %>

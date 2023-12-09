@@ -48,9 +48,8 @@
     <h2 class="lanzamientos__titulo">PRODUCTOS RELACIONADOS</h2>
     <div class="ultimos_lanzamientos glide__track" data-glide-el="track">
       <ul class="lanzamientos_lista glide__slides">
-        <% productos.forEach(card => { %>
-        <%-include('partials/card.ejs', { card: card }) %> <% })
-        %>
+        <% productos.forEach(producto => { %> <%-include('partials/card.ejs', {
+        producto: producto }) %> <% }) %>
       </ul>
     </div>
     <div class="glide__arrows" data-glide-el="controls">
@@ -70,8 +69,8 @@
 <script src="https://unpkg.com/@glidejs/glide"></script>
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 <script>
-  new Glide('.glide', {
-    type: 'carousel',
+  new Glide(".glide", {
+    type: "carousel",
     startAt: 0,
     perView: 3,
     gap: 30,
