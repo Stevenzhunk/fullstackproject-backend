@@ -78,6 +78,5 @@ app.listen(PORT, async () => {
   } catch (error) {
     console.log(error);
   }
-
   console.log(`server is runing on port ${PORT}`.bgCyan.white);
 });

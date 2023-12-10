@@ -80,6 +80,7 @@ const createRegister = async (req, res) => {
 };
 
 const logout = (req, res) => {
+  console.log('usuario ha sido deslogeado');
   req.session = null;
   res.redirect('/home');
 };
