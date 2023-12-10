@@ -44,7 +44,9 @@ const createLogin = async (req, res) => {
       });
     } else {
       req.session.userId = user.id;
-      res.redirect('/home');
+      res.send(
+        '<html><body><h1>Login Exitoso, reedirigiendo a home en 3 segundos</h1><script>setTimeout(function() { window.location.href = "/home"; }, 3000);</script></body></html>'
+      );
     }
   } catch (error) {
     console.log(error);
@@ -72,7 +74,9 @@ const createRegister = async (req, res) => {
   try {
     const user = await model.create(req.body);
     console.log(user);
-    res.redirect('/home');
+    res.send(
+      '<html><body><h1>Registro Exitoso, reedirigiendo a home en 3 segundos</h1><script>setTimeout(function() { window.location.href = "/home"; }, 3000);</script></body></html>'
+    );
   } catch (error) {
     console.log(error);
     res.send(error);
