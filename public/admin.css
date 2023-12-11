@@ -411,6 +411,13 @@ table {
   display: flex;
   justify-content: center;
 }
+.error_list_validation{
+  color:var(--primary-solid);
+  border-radius: var(--spacing-4);
+  font-size: var(--font-medium);
+  font-weight: var(--weight-large);
+  padding: var(--spacing-8);
+}
 /*responsive */
 
 /*register*/

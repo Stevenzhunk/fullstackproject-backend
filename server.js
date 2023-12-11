@@ -62,6 +62,8 @@ app.use('/admin', isLogin, adminRouter);
 app.use('/shop', shopRouter);
 app.use('/auth', authRouter);
 
+app.use(express.urlencoded({extended: false}));
+
 app.use((req, res, next) => {
   res.status(404).send('La pagina no existe');
 });

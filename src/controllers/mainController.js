@@ -1,4 +1,4 @@
-const licences = [
+const licenses = [
   {
     id: 1,
     name: 'Star Wars & The Mandalorian',
@@ -217,13 +217,13 @@ const index = (req, res) => {
   if (!userId) {
     res.render('index', {
       productos,
-      licences,
+      licenses,
     });
   }
   res.render('index', {
     layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
     productos,
-    licences,
+    licenses,
   });
 };
 

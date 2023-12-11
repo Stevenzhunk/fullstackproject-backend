@@ -7,6 +7,8 @@
 
 const model = require("../models/productModel");
 
+const sharp = require("sharp");
+const { validationResult } = require("express-validator");
 // constante prueba para admin
 
 const productos = [
@@ -195,7 +197,7 @@ const productos = [
   },
 ];
 
-const licences = [
+const licenses = [
   {
     id: 1,
     name: "Star Wars & The Mandalorian",
@@ -232,11 +234,30 @@ const adminHome = (req, res) => {
 const adminCreate = (req, res) => {
   res.render("create", {
     layout: path.join(__dirname, "../views/layouts/layoutAdmin"),
+    licenses,
   });
 };
 
-const adminCreatePost = (req, res) => {
-  res.send("<h1>Soy el post de la Creacion del Admin</h1>");
+const adminCreateStore = (req, res) => {
+  console.log(req.body, req.file);
+
+  const errors = validationResult(req);
+
+  if(!errors.isEmpty()){
+    return res.render("create",
+    {
+      layout: path.join(__dirname, "../views/layouts/layoutAdmin"),
+      values: req.body,
+      errors: errors.array(),
+      licenses
+    });
+  }
+  if (req.file) {
+    sharp(req.file.buffer)
+      .resize(400)
+      .toFile(path.resolve(__dirname, "../../public/uploads/image.jpg"));
+  }
+  res.send("Crear Producto");
 };
 
 const adminEditGet = (req, res) => {
@@ -246,7 +267,7 @@ const adminEditGet = (req, res) => {
     layout: path.join(__dirname, "../views/layouts/layoutAdmin"),
     productos,
     idInt,
-    licences,
+    licenses,
   });
 };
 
@@ -263,7 +284,7 @@ const adminDelete = (req, res) => {
 module.exports = {
   adminHome,
   adminCreate,
-  adminCreatePost,
+  adminCreateStore,
   adminEditGet,
   adminEditPut,
   adminDelete,
