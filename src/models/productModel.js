@@ -1,7 +1,7 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("./connection");
-
-const Product = sequelize.define("Product", {
+const { DataTypes } = require('sequelize');
+const sequelize = require('./connection');
+const License = require('./license');
+const Product = sequelize.define('Product', {
   product_name: {
     type: DataTypes.STRING(100),
     allowNull: false,
@@ -56,8 +56,10 @@ const Product = sequelize.define("Product", {
 
 // (async () => {
 //   await sequelize.sync();
-//   //await sequelize.sync({ force: true });
-//   // await sequelize.sync({ alter: true });
+//   // await sequelize.sync({ force: true });
+//   await sequelize.sync({ alter: true });
 // })();
+
+Product.belongsTo(License, { foreignKey: 'license_id' });
 
 module.exports = Product;

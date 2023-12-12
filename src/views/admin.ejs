@@ -1,5 +1,4 @@
-<%- contentFor('title') %> Admin 
-<%- contentFor('styles') %>
+<%- contentFor('title') %> Admin <%- contentFor('styles') %>
 
 <link
   rel="stylesheet"
@@ -46,7 +45,7 @@
       <th class="table-description">ID</th>
       <th class="table-description">Código</th>
       <th class="table-description">Nombre del producto</th>
-      <th class="table-description">Categoria</th>
+      <th class="table-description">Licencia</th>
     </tr>
     <% productos.forEach(producto => { %> <%- include('partials/adminElement', {
     producto: producto }) %> <% }) %>

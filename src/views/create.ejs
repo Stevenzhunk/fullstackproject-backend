@@ -14,7 +14,7 @@
   <br />
   <br />
   <% if(typeof errors != 'undefined'){ %>
-  <ul >
+  <ul>
     <% errors.forEach(error => { %>
     <li class="error_list_validation"><%= error.msg %></li>
     <%})%>
@@ -23,17 +23,29 @@
   <form action="/admin" method="post" enctype="multipart/form-data">
     <div class="renglon1">
       <label for="categoria">Categoria:</label>
-      <select name="categoryId" id="categoria" >
-        <option value="<%= typeof values != 'undefined' ? values.categoryId : ''%>" disabled selected hidden>Seleccionar</option>
+      <select name="categoryId" id="categoria">
+        <option
+          value="<%= typeof values != 'undefined' ? values.categoryId : ''%>"
+          disabled
+          selected
+          hidden
+        >
+          Seleccionar
+        </option>
         <option value="Figuras">Figuras</option>
       </select>
       <label for="licencia">Licencia:</label>
-      <select name="licence_id" id="licencia" value="<%= typeof values != 'undefined' ? values.license_id : ''%>">
-        <option  disabled selected hidden>Seleccionar</option>
-        <% licenses.forEach( license => { %>
-          <option name="license_id" value="<%=license.name%>"><%=license.name%></option>
-  
-          <%}) %>
+      <select
+        name="license_id"
+        id="licencia"
+        value="<%= typeof values != 'undefined' ? values.license_id : ''%>"
+      >
+        <option disabled selected hidden>Seleccionar</option>
+        <% licenses.forEach(license => { %>
+        <option name="license_id" value="<%=license.id%>">
+          <%=license.name%>
+        </option>
+        <% }) %>
       </select>
     </div>
     <br />
@@ -53,10 +65,12 @@
       <textarea
         name="product_description"
         id=""
-        placeholder="Descripción del producto" 
+        placeholder="Descripción del producto"
         value="<%= typeof values != 'undefined' ? values.product_description : ''%>"
-      ><%= typeof values != 'undefined' ? values.product_description : ''%>
-    </textarea>
+      >
+<%= typeof values != 'undefined' ? values.product_description : ''%>
+    </textarea
+      >
     </div>
     <br />
     <br />
@@ -101,10 +115,10 @@
       <label for="">Cuotas:</label>
       <select name="dues" id="">
         <option value="" disabled selected hidden>3 Cuotas sin interes</option>
-        <option value="value1">3 Cuotas sin interes</option>
-        <option value="value2">6 Cuotas sin interes</option>
-        <option value="value3">12 Cuotas sin interes</option>
-        <option value="value4">18 Cuotas sin interes</option>
+        <option value="3 Cuotas sin interes">3 Cuotas sin interes</option>
+        <option value="6 Cuotas sin interes">6 Cuotas sin interes</option>
+        <option value="12 Cuotas sin interes">12 Cuotas sin interes</option>
+        <option value="18 Cuotas sin interes">18 Cuotas sin interes</option>
       </select>
     </div>
     <br />
@@ -112,7 +126,6 @@
     <div class="6renglon">
       <label for="">Imagenes:</label>
       <input type="file" name="image" id="image" />
-      
     </div>
     <br />
     <br />
