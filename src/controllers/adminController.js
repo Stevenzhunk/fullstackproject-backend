@@ -5,20 +5,20 @@
 });
 */
 
-const model = require("../models/productModel");
-const modelLicences = require("../models/license");
+const model = require('../models/productModel');
+const modelLicences = require('../models/license');
 
-const sharp = require("sharp");
-const { validationResult } = require("express-validator");
+const sharp = require('sharp');
+const { validationResult } = require('express-validator');
 
-const path = require("path");
+const path = require('path');
 const adminHome = async (req, res) => {
   try {
     const products = await model.findAll({
       include: modelLicences,
     });
-    res.render("admin", {
-      layout: path.join(__dirname, "../views/layouts/layoutAdmin"),
+    res.render('admin', {
+      layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
       productos: products,
     });
   } catch (error) {
@@ -30,8 +30,8 @@ const adminHome = async (req, res) => {
 const adminCreate = async (req, res) => {
   try {
     const licenses = await modelLicences.findAll();
-    res.render("create", {
-      layout: path.join(__dirname, "../views/layouts/layoutAdmin"),
+    res.render('create', {
+      layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
       licenses,
     });
   } catch (error) {
@@ -47,8 +47,8 @@ const adminCreateStore = async (req, res) => {
   if (!errors.isEmpty()) {
     try {
       const licenses = await modelLicences.findAll();
-      return res.render("create", {
-        layout: path.join(__dirname, "../views/layouts/layoutAdmin"),
+      return res.render('create', {
+        layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
         values: req.body,
         errors: errors.array(),
         licenses,
@@ -65,10 +65,10 @@ const adminCreateStore = async (req, res) => {
     if (req.file) {
       sharp(req.file.buffer)
         .resize(400)
-        .toFile(path.resolve(__dirname, "../../public/uploads/image.jpg"))
+        .toFile(path.resolve(__dirname, '../../public/uploads/image.jpg'))
         .catch((error) => console.log(error));
     }
-    res.redirect("/admin");
+    res.redirect('/admin');
   } catch (error) {
     console.log(error);
     res.status(505).send(error);
@@ -80,14 +80,14 @@ const adminEditGet = async (req, res) => {
     const productos = await model.findByPk(req.params.id);
     const licenses = await modelLicences.findAll();
     if (productos) {
-      res.render("edit", {
-        layout: path.join(__dirname, "../views/layouts/layoutAdmin"),
+      res.render('edit', {
+        layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
         productos,
         licenses,
       }); //machete dice: {values: productos}
       console.log(productos);
     } else {
-      res.status(404).send("El producto no existe");
+      res.status(404).send('El producto no existe');
     }
   } catch (error) {
     console.log(error);
@@ -101,7 +101,7 @@ const adminEditPut = async (req, res) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    return res.render("edit", {
+    return res.render('edit', {
       values: req.body,
       errors: errors.array(), // ver esto
     });
@@ -125,10 +125,11 @@ const adminEditPut = async (req, res) => {
             )
           );
       }
-
-      res.redirect("admin");
+      //res.send('Producto Actualizado Correctamente. Redirigiendo al Admin...');
+      //VER COMO INCLUYO UNA CONFIRMACIÓN DE MOFICACIÓN ANTES DE QUE REDIRIJA AL ADMIN
+      res.redirect('/admin');
     } else {
-      res.status(500).send("Error al actualizar el producto");
+      res.status(500).send('Error al actualizar el producto');
     }
   } catch (error) {
     console.log(error);
