@@ -4,16 +4,20 @@ contentFor('body') %>
   <h1>EDITAR ITEM</h1>
   <br />
   <br />
-  <form action="">
+  <form 
+  action="/admin/edit/<%=productos.id%>?_method=PUT" 
+  method="POST" 
+  enctype="multipart/form-data"
+  >
     <div class="renglon1">
       <label for="categoria">Categoria:</label>
-      <select name="" id="categoria">
-        <option value="value1" selected>Figuras</option>
+      <select name="category_id" id="categoria">
+        <option value="<%=productos.category_id%>" selected>Figuras</option>
       </select>
       <label for="licencia">Licencia:</label>
-      <select name="" id="licencia">
+      <select name="license_id" id="licencia">
         <% licenses.forEach( license => { %>
-        <option value="value2"><%=license.name%></option>
+        <option value="<%=license.id%>"><%=license.name%></option>
 
         <%}) %>
       </select>
@@ -25,14 +29,15 @@ contentFor('body') %>
       <input
         class="borde_rojo input_texto input_grande"
         placeholder="Escribe nombre del producto"
-        value="<%= productos[idInt].product_name %>"
+        name="product_name"
+        value="<%= productos.product_name %>"
       />
     </div>
     <br />
     <br />
     <div class="3renglon">
-      <textarea name="" id="" placeholder="Descripción del producto">
-  <%=productos[idInt].product_description%>
+      <textarea name="product_description" id="" placeholder="Descripción del producto">
+  <%=productos.product_description%>
             </textarea
       >
     </div>
@@ -43,24 +48,26 @@ contentFor('body') %>
       <input
         type="text"
         class="borde_rojo input_texto input_mediano"
-        name=""
+        name="sku"
         id=""
         placeholder="SSK111AB001"
-        value="<%= productos[idInt].sku %>"
+        value="<%= productos.sku %>"
       />
       <label for="">Precio: $</label>
       <input
         type="number"
         class="borde_rojo input_texto input_mediano"
+        name="price"
         placeholder="$ 0.000,00"
-        value="<%= productos[idInt].price %>"
+        value="<%= productos.price %>"
       />
       <label for="">Stock:</label>
       <input
         type="number"
         class="borde_rojo input_texto input_chico"
+        name="stock"
         placeholder="0"
-        value="<%= productos[idInt].stock %>"
+        value="<%= productos.stock %>"
       />
     </div>
     <br />
@@ -70,28 +77,27 @@ contentFor('body') %>
       <input
         type="number"
         class="borde_rojo input_texto input_chico"
+        name="discount"
         placeholder="0%"
-        value="<%= productos[idInt].discount %>"
+        value="<%= productos.discount %>"
       />
       <label for="">Cuotas:</label>
-      <select name="" id="">
-        <option
-          value="<%= productos[idInt].dues %>"
-          disabled
-          selected
-          hidden
-        ></option>
-        <option value="value1">3 Cuotas sin interes</option>
-        <option value="value2" selected>6 Cuotas sin interes</option>
-        <option value="value3">12 Cuotas sin interes</option>
-        <option value="value4">18 Cuotas sin interes</option>
+      <select name="dues" id="">
+
+        <!-- <option value="<%= productos.dues %>" disabled selected hidden></option> -->
+        <!-- FA: no entendí el disabled selected hidden pero no logro que aparezca la opción 3 - VER; PEND: streamline código SELECTED y pasar a licensias -->
+        <option value="3" <% let select3 = (productos.dues == 3) ? "selected" : ""; %> <%=select3%>3 Cuotas sin interes</option>
+        <option value="6" <% let select6 = (productos.dues == 6) ? "selected" : ""; %> <%=select6%>>6 Cuotas sin interes</option>
+        <option value="12" <% let select12 = (productos.dues == 12) ? "selected" : ""; %><%=select12%>>12 Cuotas sin interes</option>
+        <option value="18" <% let select18 = (productos.dues == 18) ? "selected" : ""; %><%=select18%>>18 Cuotas sin interes</option>
       </select>
     </div>
     <br />
     <br />
     <div class="6renglon">
       <label for="">Imagenes:</label>
-      <input type="file" name="" id="" />
+      <input type="file" name="image_front" id="" />
+      <!-- me falta un input para el image_back -->
     </div>
     <br />
     <br />
@@ -99,7 +105,7 @@ contentFor('body') %>
       <div class="imagenesYTexto">
         <picture>
           <img
-            src="<%= productos[idInt].image_front %>"
+            src="<%= productos.image_front %>"
             class="imagenesfiguras borde_rojo"
             alt="Frente"
           />
@@ -109,7 +115,7 @@ contentFor('body') %>
       <div class="imagenesYTexto">
         <picture>
           <img
-            src="<%= productos[idInt].image_back %>"
+            src="<%= productos.image_back %>"
             class="imagenesfiguras borde_rojo"
             alt="Dorso"
           />
