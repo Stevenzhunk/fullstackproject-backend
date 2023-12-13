@@ -16,19 +16,16 @@
   <section class="item_container">
     <picture>
       <img
-        src="/img/star-wars/baby-yoda-1.webp"
-        alt="Figura coleccionable Funko de la serie The Mandalorian"
+        src="<%= producto.image_front %>"
+        alt="<%= producto.product_name %>"
       />
     </picture>
     <div class="caja_article">
       <article class="item_texto">
-        <p class="item_franquicia">STAR WARS</p>
-        <h3 class="item_titulo">BABY YODA BLUEBALL</h3>
-        <p class="item_descripcion">
-          Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga,
-          edición limitada.
-        </p>
-        <p class="item_precio">$ 1799,99</p>
+        <p class="item_franquicia"><%=producto.License.name %></p>
+        <h3 class="item_titulo"><%= producto.product_name %></h3>
+        <p class="item_descripcion"><%= producto.product_description %></p>
+        <p class="item_precio">$&nbsp;<%= producto.price %></p>
         <div id="caja_cantidad_item">
           <button id="cantidad_item">0</button>
           <div id="aumentar-disminuir">
@@ -69,8 +66,8 @@
 <script src="https://unpkg.com/@glidejs/glide"></script>
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 <script>
-  new Glide(".glide", {
-    type: "carousel",
+  new Glide('.glide', {
+    type: 'carousel',
     startAt: 0,
     perView: 3,
     gap: 30,

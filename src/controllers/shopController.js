@@ -3,6 +3,9 @@
 // para poder manipularlos en el carrrito,
 // aviso para que revisen cómo les impacta en otras vistas
 
+const model = require('../models/productModel');
+const modelLicences = require('../models/license');
+
 const productos = [
   {
     id: 1,
@@ -190,34 +193,60 @@ const productos = [
 ];
 
 const path = require('path');
-const shopHome = (req, res) => {
+const shopHome = async (req, res) => {
   const userId = req.session.userId;
-  if (!userId) {
-    res.render('shop', {
-      productos,
+  try {
+    const products = await model.findAll({
+      include: modelLicences,
     });
+    if (products) {
+      if (!userId) {
+        res.render('shop', {
+          productos: products,
+        });
+      }
+      res.render('shop', {
+        layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
+        productos: products,
+      });
+    }
+  } catch (error) {
+    console.log(error);
   }
-  res.render('shop', {
-    layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
-    productos,
-  });
 };
 
-const shopItem = (req, res) => {
-  const { id } = req.params;
-
+const shopItem = async (req, res) => {
+  console.log(`busco el params de`, req.params.id);
   const userId = req.session.userId;
-  if (!userId) {
-    res.render('item', {
-      itemId: id,
-      productos,
+  try {
+    const product = await model.findByPk(req.params.id, {
+      include: modelLicences,
     });
+    console.log(`la info del producto es:`, product);
+    const products = await model.findAll({
+      include: modelLicences,
+    });
+
+    if (products) {
+      if (!userId) {
+        res.render('item', {
+          producto: product,
+          productos: products,
+          itemId: req.params.id,
+        });
+      }
+      res.render('item', {
+        layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
+        producto: product,
+        productos: products,
+        itemId: req.params.id,
+      });
+    } else {
+      res.status(404).send('El producto no existe');
+    }
+  } catch (error) {
+    console.log(error);
   }
-  res.render('item', {
-    layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
-    itemId: id,
-    productos,
-  });
 };
 
 const addItem = (req, res) => {

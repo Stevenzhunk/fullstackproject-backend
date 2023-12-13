@@ -209,22 +209,30 @@ const productos = [
     categoryId: '0',
   },
 ];
-
+const model = require('../models/productModel');
+const modelLicences = require('../models/license');
 path = require('path');
 
-const index = (req, res) => {
+const index = async (req, res) => {
   const userId = req.session.userId;
-  if (!userId) {
+  try {
+    const products = await model.findAll({
+      include: modelLicences,
+    });
+    if (!userId) {
+      res.render('index', {
+        productos: products,
+        licenses,
+      });
+    }
     res.render('index', {
-      productos,
+      layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
+      productos: products,
       licenses,
     });
+  } catch (error) {
+    console.log(error);
   }
-  res.render('index', {
-    layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
-    productos,
-    licenses,
-  });
 };
 
 const mainContact = (req, res) => {

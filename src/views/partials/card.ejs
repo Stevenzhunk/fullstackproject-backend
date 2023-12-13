@@ -1,6 +1,6 @@
 <li>
   <article class="productos articulo">
-    <a href="/shop/item/:<%=producto.id%>">
+    <a href="/shop/item/<%=producto.id%>">
       <picture class="articulo__cover">
         <div class="nuevo">Nuevo</div>
         <img
@@ -15,10 +15,12 @@
         />
       </picture>
       <div class="datos_articulo_container">
-        <p class="articulo_franquicia"><%= producto.license_id %></p>
+        <p class="articulo_franquicia"><%= producto.License.name %></p>
         <h4 class="articulo_titulo"><%= producto.product_name %></h4>
         <p class="articulo_precio">$&nbsp;<%= producto.price %></p>
-        <p class="articulo_cuotas"><%= producto.dues %></p>
+        <p class="articulo_cuotas">
+          <%= producto.dues %> &nbsp;CUOTAS SIN INTERÉS
+        </p>
       </div>
     </a>
   </article>
