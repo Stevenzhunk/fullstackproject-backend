@@ -8,13 +8,13 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const colors = require('colors');
 const expressLayouts = require('express-ejs-layouts');
-const sequelize = require('./src/models/connection');
+const sequelize = require('./src/models/connection.js');
 const session = require('cookie-session');
 const mainRouter = require('./src/routes/mainRoute.js');
 const adminRouter = require('./src/routes/adminRoute.js');
-const shopRouter = require('./src/routes/shopRoute');
+const shopRouter = require('./src/routes/shopRoute.js');
 const authRouter = require('./src/routes/authRoute.js');
-const User = require('./src/models/User');
+const User = require('./src/models/User.js');
 
 //rest obj init
 const app = express();
@@ -62,7 +62,7 @@ app.use('/admin', isLogin, adminRouter);
 app.use('/shop', shopRouter);
 app.use('/auth', authRouter);
 
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
   res.status(404).send('La pagina no existe');
@@ -71,7 +71,7 @@ app.use((req, res, next) => {
 //port
 const PORT = process.env.PORT || 3000;
 
-console.log(`base de datos en server.js es ${process.env.LOCAL_DATABASE}`);
+console.log(`base de datos en index.js es ${process.env.LOCAL_DATABASE}`);
 
 //listen and database
 app.listen(PORT, async () => {
