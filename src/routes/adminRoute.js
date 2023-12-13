@@ -34,7 +34,12 @@ adminRouter.post(
 
 adminRouter.get('/edit/:id', controller.adminEditGet);
 
-adminRouter.put('/edit/:id', controller.adminEditPut);
+adminRouter.put(
+  '/edit/:id',
+  upload.single('imagen'),
+  validations,
+  controller.adminEditPut
+);
 
 adminRouter.delete('/edit/:id', controller.adminDelete);
 
