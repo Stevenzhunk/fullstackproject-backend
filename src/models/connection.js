@@ -8,7 +8,8 @@ const host = process.env.LOCAL_HOST;
 
 const sequelize = new Sequelize(Database, localUser, passwordData, {
   host: host,
-  dialect: "mysql",
+  dialect: 'mysql',
+  dialectModule: require('mysql2'),
 });
 
 console.log(`variables: Database - ${Database}`);
