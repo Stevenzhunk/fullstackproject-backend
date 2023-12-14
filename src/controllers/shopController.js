@@ -254,8 +254,12 @@ const addItem = (req, res) => {
   res.send(`<h1>Soy el item de shop Nro : ${id} añadiéndose al carrito <h1>`);
 };
 
-const cartHome = (req, res) => {
+const cartHome = async (req, res) => {
   const userId = req.session.userId;
+  const productos = await model.findAll({
+    include: modelLicences,
+  });
+
   if (!userId) {
     res.render('cart', {
       productos,
