@@ -17,6 +17,7 @@ const validations = [
     .isLength({ min: 3 })
     .withMessage('Nombre tiene que tener 3 caracteres'),
   body('price').not().isEmpty().withMessage('El precio es obligatorio'),
+  body('license_id').not().isEmpty().withMessage('La licencia es obligatoria'),
 ];
 
 const controller = require('../controllers/adminController.js');
@@ -27,7 +28,7 @@ adminRouter.get('/create', controller.adminCreate);
 
 adminRouter.post(
   '/',
-  upload.single('image'),
+  upload.array('image',2),
   validations,
   controller.adminCreateStore
 );

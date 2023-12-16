@@ -67,10 +67,7 @@
         id=""
         placeholder="Descripción del producto"
         value="<%= typeof values != 'undefined' ? values.product_description : ''%>"
-      >
-<%= typeof values != 'undefined' ? values.product_description : ''%>
-    </textarea
-      >
+      ><%= typeof values != 'undefined' ? values.product_description : ''%></textarea>
     </div>
     <br />
     <br />
@@ -125,7 +122,8 @@
     <br />
     <div class="6renglon">
       <label for="">Imagenes:</label>
-      <input type="file" name="image" id="image" />
+      <input type="file" name="image" id="image_front" accept="image/*"/>
+      <input type="file" name="image" id="image_back" accept="image/*"/>
     </div>
     <br />
     <br />
