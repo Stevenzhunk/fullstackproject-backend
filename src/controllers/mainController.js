@@ -1,7 +1,7 @@
 const licenses = [
   {
     id: 1,
-    name: 'Star Wars & The Mandalorian',
+    name: 'STAR WARS & THE MANDALORIAN',
     description:
       'Disfruta de una saga que sigue agregando personajes a su colección',
     cover: '/img/star-wars/baby-yoda-1.webp',
@@ -9,7 +9,7 @@ const licenses = [
   },
   {
     id: 2,
-    name: 'Pokemon Indigo',
+    name: 'PPOKEMON INDIGO',
     description:
       'Atrapa todos los que puedas y disfruta de una colección llena de amigos.',
     cover: '/img/pokemon/vulpix-1.webp',
@@ -17,7 +17,7 @@ const licenses = [
   },
   {
     id: 3,
-    name: 'Harry Poter',
+    name: 'HARRY POTTER',
     description: 'Revive los recuerdos de una saga llena de magia y encanto.',
     cover: './img/harry-potter/snape-patronus-1.webp',
     altCover: 'Snape Patronus',
