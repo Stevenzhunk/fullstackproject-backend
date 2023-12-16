@@ -56,27 +56,37 @@ const adminCreateStore = async (req, res) => {
     }
   }
   try {
-    const products = await model.create(req.body);
+    let i = 0;
+    const images = req.files;
+    const data = req.body;
+    let productModel = data;
+    const dateId = Date.now();
+
+    if (images) {
+      const imageFrontModel=`../../public/uploads/products/producto_front_${dateId}.jpg`
+      const imageBackModel = `../../public/uploads/products/producto_back_${dateId}.jpg`
+       productModel = {
+        image_front: imageFrontModel,
+        image_back: imageBackModel,
+        ...data,
+      };
+    }
+    const products = await model.create(productModel);
     if (products && req.files) {
-      let i = 0;
-      const images = req.files;
       images.forEach((image) => {
+        const pathImage = `../../public/uploads/products/producto_${
+          i == 0 ? "front" : "back"
+        }_${dateId}.jpg`;
         sharp(image.buffer)
           .resize(400, 400, {
             fit: "contain",
             background: "#FFF",
           })
-          .toFile(
-            path.resolve(
-              __dirname,
-              `../../public/uploads/products/producto_${products.id}_${i == 0 ? "front" : "back"}.jpg`
-            )
-          )
+          .toFile(path.resolve(__dirname, pathImage))
           .catch((error) => console.log(error));
         i++;
       });
-    }
-    alert("¡Producto creado con éxito!");
+    } 
     res.redirect("/admin");
   } catch (error) {
     console.log(error);
