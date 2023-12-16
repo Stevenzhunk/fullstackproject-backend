@@ -63,8 +63,8 @@ const adminCreateStore = async (req, res) => {
     const dateId = Date.now();
 
     if (images) {
-      const imageFrontModel=`../../public/uploads/products/producto_front_${dateId}.jpg`
-      const imageBackModel = `../../public/uploads/products/producto_back_${dateId}.jpg`
+      const imageFrontModel=`/uploads/products/producto_front_${dateId}.png`
+      const imageBackModel = `/uploads/products/producto_back_${dateId}.png`
        productModel = {
         image_front: imageFrontModel,
         image_back: imageBackModel,
@@ -76,7 +76,7 @@ const adminCreateStore = async (req, res) => {
       images.forEach((image) => {
         const pathImage = `../../public/uploads/products/producto_${
           i == 0 ? "front" : "back"
-        }_${dateId}.jpg`;
+        }_${dateId}.png`;
         sharp(image.buffer)
           .resize(400, 400, {
             fit: "contain",
