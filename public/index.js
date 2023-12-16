@@ -51,159 +51,164 @@ if (document.getElementById('cantidad_item')) {
       cantidad_item.textContent = String(q);
     }
   });
-} else {
-  console.log('elemento no existe en pagina');
 }
 
 /* SCRIPTS CART */
 
-//script nro de items y montos iniciales en carrito:
+if (document.title == 'Carrito') {
+  //script nro de items y montos iniciales en carrito:
 
-const cantidades_cart_nodelist = Array.from(
-  document.querySelectorAll('.quantity__number')
-);
-const cantidades_cart_array = cantidades_cart_nodelist.map((cantidad) => {
-  return cantidad.textContent;
-});
-let cantidad_items_cart = cantidades_cart_array.length;
+  const cantidades_cart_nodelist = Array.from(
+    document.querySelectorAll('.quantity__number')
+  );
+  const cantidades_cart_array = cantidades_cart_nodelist.map((cantidad) => {
+    return cantidad.textContent;
+  });
+  let cantidad_items_cart = cantidades_cart_array.length;
 
-const montos_cart_nodelist = Array.from(
-  document.querySelectorAll('.quantity__amount')
-);
-const montos_cart_array = montos_cart_nodelist.map((monto) => {
-  return monto.textContent;
-});
+  const montos_cart_nodelist = Array.from(
+    document.querySelectorAll('.quantity__amount')
+  );
+  const montos_cart_array = montos_cart_nodelist.map((monto) => {
+    return monto.textContent;
+  });
 
-console.log(montos_cart_array);
+  console.log(montos_cart_array);
 
-/*script resumen cart: */
+  /*script resumen cart: */
 
-//cantidad:
-let cantidades_cart = 0;
-cantidades_cart_array.forEach((num) => {
-  cantidades_cart += parseInt(num);
-});
+  //cantidad:
+  let cantidades_cart = 0;
+  cantidades_cart_array.forEach((num) => {
+    cantidades_cart += parseInt(num);
+  });
 
-console.log(cantidades_cart);
+  console.log(cantidades_cart);
 
-const cantidad_resumen_cart = document.getElementById('cantidad_resumen_cart');
-cantidad_resumen_cart.textContent = String(cantidades_cart);
+  const cantidad_resumen_cart = document.getElementById(
+    'cantidad_resumen_cart'
+  );
+  cantidad_resumen_cart.textContent = String(cantidades_cart);
 
-//monto resumen:
+  //monto resumen:
 
-let montos_cart = 0;
-montos_cart_array.forEach((num) => {
-  montos_cart += parseFloat(num);
-});
+  let montos_cart = 0;
+  montos_cart_array.forEach((num) => {
+    montos_cart += parseFloat(num);
+  });
 
-console.log(montos_cart.toFixed(2));
+  console.log(montos_cart.toFixed(2));
 
-const monto_resumen_subtotal_cart = document.getElementById(
-  'monto_resumen_subtotal'
-);
-monto_resumen_subtotal_cart.textContent = String(montos_cart.toFixed(2));
+  const monto_resumen_subtotal_cart = document.getElementById(
+    'monto_resumen_subtotal'
+  );
+  monto_resumen_subtotal_cart.textContent = String(montos_cart.toFixed(2));
 
-const monto_resumen_total_cart = document.getElementById('monto_resumen_total');
-monto_resumen_total_cart.textContent = String(montos_cart.toFixed(2));
+  const monto_resumen_total_cart = document.getElementById(
+    'monto_resumen_total'
+  );
+  monto_resumen_total_cart.textContent = String(montos_cart.toFixed(2));
 
-//script botones cart:
+  //script botones cart:
 
-for (let id = 1; id <= cantidad_items_cart; id++) {
-  if (document.getElementById(`cantidad_cart_${id}`)) {
-    document
-      .getElementById(`boton_aumentar_cart_${id}`)
-      .addEventListener('click', () => {
-        const cantidad_cart = document.getElementById(`cantidad_cart_${id}`);
-        const precio_cart = document.getElementById(`precio_cart_${id}`);
-        const monto_cart = document.getElementById(`monto_cart_${id}`);
+  for (let id = 1; id <= cantidad_items_cart; id++) {
+    if (document.getElementById(`cantidad_cart_${id}`)) {
+      document
+        .getElementById(`boton_aumentar_cart_${id}`)
+        .addEventListener('click', () => {
+          const cantidad_cart = document.getElementById(`cantidad_cart_${id}`);
+          const precio_cart = document.getElementById(`precio_cart_${id}`);
+          const monto_cart = document.getElementById(`monto_cart_${id}`);
 
-        let q = parseInt(cantidad_cart.textContent);
-        let p = parseFloat(precio_cart.textContent);
-        let m = parseFloat(monto_cart.textContent);
-        q++;
-        m = p * q;
-        cantidad_cart.textContent = String(q);
-        monto_cart.textContent = String(m);
-
-        //efecto en Resumen:
-
-        const cantidad_resumen_cart_preclick_pos = document.getElementById(
-          'cantidad_resumen_cart'
-        );
-        let qtot = parseInt(cantidad_resumen_cart_preclick_pos.textContent);
-        qtot++;
-        cantidad_resumen_cart_preclick_pos.textContent = String(qtot);
-
-        const monto_resumen_subtotal_cart_preclick_pos =
-          document.getElementById('monto_resumen_subtotal');
-        let sub = parseFloat(
-          monto_resumen_subtotal_cart_preclick_pos.textContent
-        );
-        sub += p;
-        monto_resumen_subtotal_cart_preclick_pos.textContent = String(
-          sub.toFixed(2)
-        );
-
-        const monto_resumen_total_cart_preclick_pos = document.getElementById(
-          'monto_resumen_total'
-        );
-        let tot = parseFloat(monto_resumen_total_cart_preclick_pos.textContent);
-        tot += p;
-        monto_resumen_total_cart_preclick_pos.textContent = String(
-          tot.toFixed(2)
-        );
-      });
-
-    document
-      .getElementById(`boton_disminuir_cart_${id}`)
-      .addEventListener('click', () => {
-        const cantidad_cart = document.getElementById(`cantidad_cart_${id}`);
-        const precio_cart = document.getElementById(`precio_cart_${id}`);
-        const monto_cart = document.getElementById(`monto_cart_${id}`);
-
-        let q = parseInt(cantidad_cart.textContent);
-        let p = parseFloat(precio_cart.textContent);
-        let m = parseFloat(monto_cart.textContent);
-        if (q == 0) {
-          cantidad_cart.textContent = String(q);
-          m = p * q;
-          monto_cart.textContent = String(m);
-        } else {
-          q--;
+          let q = parseInt(cantidad_cart.textContent);
+          let p = parseFloat(precio_cart.textContent);
+          let m = parseFloat(monto_cart.textContent);
+          q++;
           m = p * q;
           cantidad_cart.textContent = String(q);
           monto_cart.textContent = String(m);
 
           //efecto en Resumen:
 
-          const cantidad_resumen_cart_preclick_neg = document.getElementById(
+          const cantidad_resumen_cart_preclick_pos = document.getElementById(
             'cantidad_resumen_cart'
           );
-          let qtot = parseInt(cantidad_resumen_cart_preclick_neg.textContent);
-          qtot--;
-          cantidad_resumen_cart_preclick_neg.textContent = String(qtot);
+          let qtot = parseInt(cantidad_resumen_cart_preclick_pos.textContent);
+          qtot++;
+          cantidad_resumen_cart_preclick_pos.textContent = String(qtot);
 
-          const monto_resumen_subtotal_cart_preclick_neg =
+          const monto_resumen_subtotal_cart_preclick_pos =
             document.getElementById('monto_resumen_subtotal');
           let sub = parseFloat(
-            monto_resumen_subtotal_cart_preclick_neg.textContent
+            monto_resumen_subtotal_cart_preclick_pos.textContent
           );
-          sub -= p;
-          monto_resumen_subtotal_cart_preclick_neg.textContent = String(
+          sub += p;
+          monto_resumen_subtotal_cart_preclick_pos.textContent = String(
             sub.toFixed(2)
           );
 
-          const monto_resumen_total_cart_preclick_neg = document.getElementById(
+          const monto_resumen_total_cart_preclick_pos = document.getElementById(
             'monto_resumen_total'
           );
           let tot = parseFloat(
-            monto_resumen_total_cart_preclick_neg.textContent
+            monto_resumen_total_cart_preclick_pos.textContent
           );
-          tot -= p;
-          monto_resumen_total_cart_preclick_neg.textContent = String(
+          tot += p;
+          monto_resumen_total_cart_preclick_pos.textContent = String(
             tot.toFixed(2)
           );
-        }
-      });
+        });
+
+      document
+        .getElementById(`boton_disminuir_cart_${id}`)
+        .addEventListener('click', () => {
+          const cantidad_cart = document.getElementById(`cantidad_cart_${id}`);
+          const precio_cart = document.getElementById(`precio_cart_${id}`);
+          const monto_cart = document.getElementById(`monto_cart_${id}`);
+
+          let q = parseInt(cantidad_cart.textContent);
+          let p = parseFloat(precio_cart.textContent);
+          let m = parseFloat(monto_cart.textContent);
+          if (q == 0) {
+            cantidad_cart.textContent = String(q);
+            m = p * q;
+            monto_cart.textContent = String(m);
+          } else {
+            q--;
+            m = p * q;
+            cantidad_cart.textContent = String(q);
+            monto_cart.textContent = String(m);
+
+            //efecto en Resumen:
+
+            const cantidad_resumen_cart_preclick_neg = document.getElementById(
+              'cantidad_resumen_cart'
+            );
+            let qtot = parseInt(cantidad_resumen_cart_preclick_neg.textContent);
+            qtot--;
+            cantidad_resumen_cart_preclick_neg.textContent = String(qtot);
+
+            const monto_resumen_subtotal_cart_preclick_neg =
+              document.getElementById('monto_resumen_subtotal');
+            let sub = parseFloat(
+              monto_resumen_subtotal_cart_preclick_neg.textContent
+            );
+            sub -= p;
+            monto_resumen_subtotal_cart_preclick_neg.textContent = String(
+              sub.toFixed(2)
+            );
+
+            const monto_resumen_total_cart_preclick_neg =
+              document.getElementById('monto_resumen_total');
+            let tot = parseFloat(
+              monto_resumen_total_cart_preclick_neg.textContent
+            );
+            tot -= p;
+            monto_resumen_total_cart_preclick_neg.textContent = String(
+              tot.toFixed(2)
+            );
+          }
+        });
+    }
   }
 }
