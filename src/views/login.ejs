@@ -23,27 +23,34 @@
     <% }) %>
   </ul>
   <% } %>
-  <div>
-    <form class="login-form" action="/auth/login" method="post">
+  <div class="register-container">
+    <form class="form-container" action="/auth/login" method="post">
       <div class="user-register">
         <label for="Email">Email:</label>
         <input
           type="text"
-          class="borde_rojo input_texto input-login"
-          placeholder="johndoe@correo.com"
+          class="borde_rojo input_texto input-register"
           name="email"
+          id="email"
+          placeholder="johndoe@correo.com"
+          value="<%= typeof values != 'undefined' ? values.email : '' %>"
         />
       </div>
       <div class="password-register">
         <label class="password-field" for="password">Contraseña:</label>
         <input
           type="password"
-          class="borde_rojo input_texto input-login"
-          placeholder="********"
+          class="borde_rojo input_texto input-register"
           name="password"
+          id="password"
+          placeholder="********"
+          value=""
         />
       </div>
-      <div class="actions-login">
+      <br />
+      <br />
+
+      <div class="sumit-container div-br">
         <input type="submit" class="boton_rojo" value="Ingresar" />
         <div class="rememberme">
           <input type="checkbox" class="checkbox-login" />
@@ -54,7 +61,7 @@
   </div>
   <a href="#" class="password-lost">Olvidé mi contraseña</a>
   <a class="register-in-login" href="/auth/register"
-    >No tienes usuario?, registrar ahora</a
+    >No tienes usuario?, REGISTRAR AHORA</a
   >
 </main>
 <%- contentFor('scripts') %>

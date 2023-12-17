@@ -312,8 +312,9 @@ span {
 
 .register-in-login {
   display: flex;
-  font-size: 1.5rem;
   justify-content: center;
+  font-size: var(--font-small);
+  color: var(--secondary-solid);
   padding: 2rem;
 }
 
