@@ -10,8 +10,12 @@
     >
       edit
     </a>
-    <a href="delete.html" class="material-symbols-outlined icon-delete"
-      >delete</a
+    <form
+      class="material-symbols-outlined icon-delete"
+      action="/admin/<%= producto.id %>?_method=DELETE"
+      method="post"
     >
+      <button type="submit">delete</button>
+    </form>
   </td>
 </tr>

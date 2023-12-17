@@ -28,7 +28,7 @@ adminRouter.get('/create', controller.adminCreate);
 
 adminRouter.post(
   '/',
-  upload.array('image',2),
+  upload.array('image', 2),
   validations,
   controller.adminCreateStore
 );
@@ -37,11 +37,11 @@ adminRouter.get('/edit/:id', controller.adminEditGet);
 
 adminRouter.put(
   '/edit/:id',
-  upload.single('imagen'),
+  upload.array('image', 2),
   validations,
   controller.adminEditPut
 );
 
-adminRouter.delete('/edit/:id', controller.adminDelete);
+adminRouter.delete('/:id', controller.adminDelete);
 
 module.exports = adminRouter;
