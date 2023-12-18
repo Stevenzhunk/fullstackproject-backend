@@ -195,10 +195,6 @@
   .lanzamientos h2 {
     font-size: 26px;
   }
-  /*responsive shop*/
-  /* .shop_main {
-      display: grid;
-    } */
 
   .container_shop {
     flex-direction: column;

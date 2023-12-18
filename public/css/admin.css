@@ -386,6 +386,9 @@ table {
   outline: none;
   background-color: transparent;
 }
+.icon-delete:hover {
+  cursor: pointer;
+}
 .table-description {
   font: var(--base-font-fix);
   font-size: var(--font-intermediate);
@@ -402,6 +405,7 @@ table {
   padding-top: var(--spacing-16);
   padding-left: var(--spacing-16);
   padding-bottom: var(--spacing-16);
+  text-transform: uppercase;
 }
 #add {
   display: flex;

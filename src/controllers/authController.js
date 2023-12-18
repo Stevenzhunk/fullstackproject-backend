@@ -10,7 +10,7 @@ const getLogin = (req, res) => {
 };
 
 const createLogin = async (req, res) => {
-  console.log(JSON.stringify(req.body));
+  //console.log(JSON.stringify(req.body));
   const errors = validationResult(req);
   console.log(errors);
   if (!errors.isEmpty()) {
@@ -26,10 +26,10 @@ const createLogin = async (req, res) => {
         email: req.body.email,
       },
     });
-    console.log(`el req.bodypassword es`, req.body.password);
-    console.log(`el user.password es`, user.password);
+    //console.log(`el req.bodypassword es`, req.body.password);
+   // console.log(`el user.password es`, user.password);
     const bcrcmpr = await bcryptjs.compare(req.body.password, user.password);
-    console.log(`la comparacion es:`, bcrcmpr);
+   // console.log(`la comparacion es:`, bcrcmpr);
     if (!user) {
       res.render('login', {
         values: req.body,
@@ -61,7 +61,7 @@ const getRegister = (req, res) => {
 };
 
 const createRegister = async (req, res) => {
-  console.log(req.body);
+ // console.log(req.body);
   const errors = validationResult(req);
   console.log(errors);
   if (!errors.isEmpty()) {
