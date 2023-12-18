@@ -12,8 +12,8 @@ const licenses = [
     name: 'PPOKEMON INDIGO',
     description:
       'Atrapa todos los que puedas y disfruta de una colección llena de amigos.',
-    cover: '/img/pokemon/vulpix-1.webp',
-    altCover: 'Vulpix',
+    cover: '/img/pokemon/dragonite-1.webp',
+    altCover: 'Dragonite',
   },
   {
     id: 3,
