@@ -382,6 +382,9 @@ table {
 .icon-delete {
   color: var(--primary-solid);
   text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 .table-description {
   font: var(--base-font-fix);

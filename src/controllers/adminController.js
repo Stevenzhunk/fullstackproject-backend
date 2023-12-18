@@ -118,7 +118,10 @@ const adminEditGet = async (req, res) => {
 };
 
 const adminEditPut = async (req, res) => {
-  // console.log(req.params, req.body, req.files[0].buffer, req.files[1].buffer);
+  console.log(req.params, req.body, req.files);
+  //if (req.files) {
+  //  console.log(req.files[0].buffer, req.files[1].buffer);
+  //}
 
   const errors = validationResult(req);
 
@@ -137,18 +140,21 @@ const adminEditPut = async (req, res) => {
     });
 
     if (affected[0] == 1) {
-      if (req.files) {
-        const product = await model.findByPk(req.params.id);
-        const pathFront = product.dataValues.image_front;
-        console.log(pathFront);
-        const pathBack = product.dataValues.image_back;
-        console.log(pathBack);
+      const product = await model.findByPk(req.params.id);
+      const pathFront = product.dataValues.image_front;
+      console.log(pathFront);
+      const pathBack = product.dataValues.image_back;
+      console.log(pathBack);
+      if (req.files[0]) {
         const imageFront = req.files[0].buffer;
-        const imageBack = req.files[1].buffer;
+
         sharp(imageFront)
           .resize(300)
           .toFile(path.resolve(__dirname, `../../public${pathFront}`));
-        sharp(imageBack.buffer)
+      }
+      if (req.files[1]) {
+        const imageBack = req.files[1].buffer;
+        sharp(imageBack)
           .resize(300)
           .toFile(path.resolve(__dirname, `../../public${pathBack}`));
       }
