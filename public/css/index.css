@@ -432,20 +432,20 @@ iconify-icon {
 }
 
 .articulo_precio {
-  color: var(--gray-solid); /* original: #333333 */
+  color: var(--gray-solid);
   font-size: var(
     --font-xsmall
-  ); /* original: 16px - me quedó de 32px aunque le puse 1.6em VER */
+  ); 
   font-weight: var(--weight-small);
   margin-bottom: 0.5em;
   font-family: var(--base-font);
 }
 
 .articulo_cuotas {
-  color: var(--secondary-solid); /* original: #1d84b5 */
+  color: var(--secondary-solid); 
   font-size: var(
     --font-tiny
-  ); /* original: 12px - me quedó de 24px aunque le puse 1.2em VER */
+  ); 
   font-weight: var(--weight-large);
   margin-bottom: 1em;
   font-family: var(--base-font);
@@ -487,7 +487,7 @@ iconify-icon {
 /* Estilos del Item */
 
 .item_container {
-  /*  margin-top: var(--spacing-128); - ver si dejo, es lo único que había de css del item-container - */
+ 
   display: flex;
   font-family: var(--base-font);
   justify-content: center;
@@ -553,15 +553,13 @@ iconify-icon {
   justify-content: center;
   align-items: center;
   font-size: var(--font-small);
-  background: var(--gray-solid); /* en realidad es #4F4F4F */
+  background: var(--gray-solid); 
   color: var(--light-font-solid);
   width: 18px;
   height: 16px;
   border: 0;
   margin-bottom: 1.5px;
-  /* width: 10px;
-  height: 8px;
-  padding: 4px; */
+
 }
 #boton_disminuir_item {
   display: flex;
@@ -574,9 +572,7 @@ iconify-icon {
   height: 16px;
   border: 0;
   margin-top: 1.5px;
-  /* width: 10px;
-  height: 8px;
-  padding: 4px; */
+
 }
 .agregar_item {
   font-size: var(--font-medium);
@@ -612,7 +608,7 @@ iconify-icon {
 
 .shop_main {
   display: block;
-  /* border: solid red 2px; */
+
   width: 80%;
   padding: 0;
   margin: 0;
@@ -628,68 +624,64 @@ iconify-icon {
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
-  /* border: solid red 2px; */
+
 }
 
 .shop_paginas li {
   display: flex;
   gap: 8px;
   list-style: none;
-  /* border: solid red 2px; */
+
 }
 
 .shop_paginas input {
-  color: var(--gray-900)
-    /* original: #212b36 - FIGMA tiene: #212B36 - use otro para normalizar */;
+  color: var(--gray-900);    
   background-color: var(
     --light-bg-color
-  ); /* original: #ffffff - no es exacto pero no quice seguir agregando colores */
+  ); 
   text-align: center;
   vertical-align: middle;
-  font-size: var(--font-small); /* original: 16px */
-  font-family: var(--base-font); /* original: Inter */
+  font-size: var(--font-small); 
+  font-family: var(--base-font); 
   font-weight: var(--weight-large);
   word-wrap: break-word;
   border-radius: 4px;
   overflow: hidden;
   width: 44px;
   height: 44px;
-  border: 0.5px var(--light-bg-solid) solid; /* original: #dfe3e8 */
+  border: 0.5px var(--light-bg-solid) solid; 
 }
 
 .primer_boton {
   background-color: var(
     --light-gray-500
-  ) !important; /*original #919eab - cambié para no agregar más colores*/
+  ) !important; 
   color: var(
     --light-gray-900
-  ); /* original #c4cdd5 - cambié para no agregar más colores, pero no me lo toma - VER */
+  ); 
 }
 
 .pagina_seleccionada {
   color: var(
     --primary-solid
-  ) !important; /* FIGMA es #F33 - cambié para no agregar más colores*/
-  border: solid var(--primary-solid) 2px !important; /* FIGMA es #F33 - cambié para no agregar más colores*/
+  ) !important; 
+  border: solid var(--primary-solid) 2px !important; 
 }
 
 /*Aca comienza lo del buscador del SHOP - ASIDE*/
 
 .aside_shop {
-  /* padding-left: 40px; */
+ 
   width: 20%;
 }
 
 .titulo_buscador {
-  color: var(--black-solid); /* debería ser #111 */
+  color: var(--black-solid); 
   font-size: var(--font-large);
-  font-family: var(--base-font); /* original: Inter */
+  font-family: var(--base-font); 
   font-weight: var(--weight-medium);
   word-wrap: break-word;
 }
-
-/* no pude normalizar esta clase .buscar ::placeholder; 
-se me volvía loco el texto si usaba todo igual a .placeholder buscador - VER */
 
 .buscar ::placeholder {
   color: #b9b9b9;
@@ -701,9 +693,9 @@ se me volvía loco el texto si usaba todo igual a .placeholder buscador - VER */
 }
 
 .placeholder_buscador {
-  color: var(--light-gray-solid); /* original: #b9b9b9 */
-  font-size: var(--font-intermediate); /* original: 20px */
-  font-family: var(--base-font); /* original: Inter */
+  color: var(--light-gray-solid); 
+  font-size: var(--font-intermediate); 
+  font-family: var(--base-font);
   font-weight: var(--weight-medium);
   word-wrap: break-word;
   padding-left: 10px;
@@ -713,14 +705,14 @@ se me volvía loco el texto si usaba todo igual a .placeholder buscador - VER */
   width: 100%;
   height: 38px;
   border-radius: 6px;
-  border: 1px var(--dark-bg-solid) solid; /* original: #30343f */
+  border: 1px var(--dark-bg-solid) solid; 
 }
 
 .ordenar_por select {
   width: 100%;
   height: 38px;
   border-radius: 6px;
-  border: 1px var(--dark-bg-solid) solid; /* original: #30343f */
+  border: 1px var(--dark-bg-solid) solid; 
 }
 
 .min_max {
@@ -732,9 +724,9 @@ se me volvía loco el texto si usaba todo igual a .placeholder buscador - VER */
 }
 
 .min_max label {
-  color: var(--black-solid); /* original: #111111 */
-  font-size: var(--font-small); /* original: 16px */
-  font-family: var(--base-font); /* original: Inter */
+  color: var(--black-solid); 
+  font-size: var(--font-small);
+  font-family: var(--base-font); 
   font-weight: var(--weight-medium);
   word-wrap: break-word;
 }
@@ -754,7 +746,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 .filtrar_seleccion {
   margin-left: 20px;
-  color: var(--black-solid); /* original: #111111 */
+  color: var(--black-solid); 
 }
 
 .my_checkbox {
@@ -762,19 +754,19 @@ input[type='number']::-webkit-outer-spin-button {
   width: 20px;
   height: 20px;
   border-radius: 6px;
-  border: 1px var(--dark-bg-solid) solid; /* original: #30343f */
+  border: 1px var(--dark-bg-solid) solid; 
 }
 
 .my_checkbox:checked {
   background-color: var(
     --secondary-solid
-  ); /* original: rgb(0, 141, 0) - normalicé con paleta */
+  ); 
 }
 
 .my_checkbox:disabled {
   background-color: var(
     --light-bg-solid
-  ); /* original: rgb(198, 198, 198) - normalicé con paleta */
+  ); 
   background-image: none;
 }
 
