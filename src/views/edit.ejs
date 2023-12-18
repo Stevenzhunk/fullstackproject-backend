@@ -17,7 +17,7 @@ contentFor('body') %>
       <label for="licencia">Licencia:</label>
       <select name="license_id" id="licencia">
         <% licenses.forEach( license => { %>
-        <option value="<%=license.id%>"><%=license.name%></option>
+        <option value="<%=license.id%>" <% if (productos.license_id == license.id) { %>selected <% } %>><%=license.name%></option>
 
         <%}) %>
       </select>
@@ -36,10 +36,7 @@ contentFor('body') %>
     <br />
     <br />
     <div class="3renglon">
-      <textarea name="product_description" id="" placeholder="Descripción del producto">
-  <%=productos.product_description%>
-            </textarea
-      >
+      <textarea name="product_description" id="" placeholder="Descripción del producto"><%=productos.product_description%></textarea>
     </div>
     <br />
     <br />
@@ -84,12 +81,10 @@ contentFor('body') %>
       <label for="">Cuotas:</label>
       <select name="dues" id="">
 
-        <!-- <option value="<%= productos.dues %>" disabled selected hidden></option> -->
-        <!-- FA: no entendí el disabled selected hidden pero no logro que aparezca la opción 3 - VER; PEND: streamline código SELECTED y pasar a licensias -->
-        <option value="3" <% let select3 = (productos.dues == 3) ? "selected" : ""; %> <%=select3%>3 Cuotas sin interes</option>
-        <option value="6" <% let select6 = (productos.dues == 6) ? "selected" : ""; %> <%=select6%>>6 Cuotas sin interes</option>
-        <option value="12" <% let select12 = (productos.dues == 12) ? "selected" : ""; %><%=select12%>>12 Cuotas sin interes</option>
-        <option value="18" <% let select18 = (productos.dues == 18) ? "selected" : ""; %><%=select18%>>18 Cuotas sin interes</option>
+        <option value="3" <% if (productos.dues == 3) { %>selected <% } %>>3 Cuotas sin interes</option>
+        <option value="6" <% if (productos.dues == 6) { %>selected <% } %>>6 Cuotas sin interes</option>
+        <option value="12" <% if (productos.dues == 12) { %>selected <% } %>>12 Cuotas sin interes</option>
+        <option value="18" <% if (productos.dues == 18) { %>selected <% } %>>18 Cuotas sin interes</option>
       </select>
     </div>
     <br />
