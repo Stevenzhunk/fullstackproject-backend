@@ -10,12 +10,10 @@
     >
       edit
     </a>
-    <form
-      class="material-symbols-outlined icon-delete"
-      action="/admin/<%= producto.id %>?_method=DELETE"
-      method="post"
-    >
-      <button type="submit">delete</button>
+    <form action="/admin/<%= producto.id %>?_method=DELETE" method="post">
+      <button type="submit" class="material-symbols-outlined icon-delete">
+        delete
+      </button>
     </form>
   </td>
 </tr>
