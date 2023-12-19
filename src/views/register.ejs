@@ -1,0 +1,104 @@
+<%- contentFor('title') %> Register <%- contentFor('styles') %>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
+/>
+
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/admin.css" />
+<link rel="stylesheet" href="/css/responsive.css" />
+<link rel="stylesheet" href="/css/variables.css" />
+
+<%- contentFor('body') %>
+<main class="main-register">
+  <h1 class="title-register">CREA TU CUENTA</h1>
+  <% if (typeof errors != 'undefined') { %>
+  <ul>
+    <% errors.forEach(error => { %>
+    <li><h3><%= error.msg %></h3></li>
+    <% }) %>
+  </ul>
+  <% } %>
+
+  <p class="complete-register">
+    Completa el formulario para ser parte del mundo de los Funkos
+  </p>
+  <div class="register-container">
+    <form class="form-container" action="/auth/register" method="post">
+      <div class="user-register">
+        <label for="name">Nombre:</label>
+        <input
+          type="text"
+          class="borde_rojo input_texto input-register"
+          name="name"
+          id="name"
+          placeholder="Jhon"
+          value=""
+        />
+      </div>
+      <div class="user-register">
+        <label for="last-name">Apellido</label>
+        <input
+          type="text"
+          class="borde_rojo input_texto input-register"
+          name="lastname"
+          id="lastname"
+          placeholder="Doe"
+          value=""
+        />
+      </div>
+      <div class="user-register">
+        <label for="Email">Email:</label>
+        <input
+          type="text"
+          class="borde_rojo input_texto input-register"
+          name="email"
+          id="email"
+          placeholder="johndoe@correo.com"
+          value="<%= typeof values != 'undefined' ? values.email : '' %>"
+        />
+      </div>
+      <div class="password-register">
+        <label class="password-field" for="password">Contraseña:</label>
+        <input
+          type="password"
+          class="borde_rojo input_texto input-register"
+          name="password"
+          id="password"
+          placeholder="********"
+          value=""
+        />
+      </div>
+      <br />
+      <br />
+      <div class="re-password-register">
+        <label for="re-password">Repetir Contraseña:</label>
+        <input
+          type="password"
+          class="borde_rojo input_texto input-register"
+          name="password_confirmation"
+          id="password_confirmation"
+          placeholder="********"
+          value=""
+        />
+      </div>
+      <br />
+      <br />
+      <div class="sumit-container div-br">
+        <input type="submit" class="boton_rojo" value="Registrar" />
+        <input type="checkbox" class="checkbox-register" value="" />
+        <p class="terms">
+          Acepto
+          <a href="terminos-y-condiciones.html" class="">
+            <span></span> Términos y Condiciones</a
+          >
+        </p>
+      </div>
+    </form>
+  </div>
+</main>
+<%- contentFor('scripts') %>

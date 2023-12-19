@@ -7,8 +7,8 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
 />
-<link rel="stylesheet" href="/index.css" />
-<link rel="stylesheet" href="/responsive.css" />
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/responsive.css" />
 <link rel="stylesheet" href="/css/variables.css" />
 <link
   rel="shortcut icon"
@@ -26,54 +26,15 @@
   <div class="bac"></div>
 </section>
 <main id="main">
-  <section class="starwars">
-    <article>
-      <h3 class="titles">STAR WARS & THE MANDALORIAN</h3>
-      <p class="descrp">
-        Disfruta de una saga que sigue agregando personajes a su colección.
-      </p>
-      <div class="line"></div>
-      <a href="/shop" class="boton-front">VER COLECCIÓN</a>
-    </article>
-    <picture>
-      <img src="./img/star-wars/baby-yoda-1.webp" alt="Bebe - Yoda" />
-    </picture>
-  </section>
-  <section class="pokemon">
-    <picture>
-      <img src="./img/pokemon/vulpix-1.webp" alt="Vulpix" />
-    </picture>
-    <article>
-      <h3 class="titles">POKEMON INDIGO</h3>
-      <p class="descrp">
-        Atrapa todos los que puedas y disfruta de una colección llena de amigos.
-      </p>
-      <div class="line"></div>
-      <a href="/shop" class="boton-front">VER COLECCIÓN</a>
-    </article>
-  </section>
-  <section class="harryPotter">
-    <article>
-      <h3 class="titles">HARRY POTTER</h3>
-      <p class="descrp">
-        Revive los recuerdos de una saga llena de magia y encanto.
-      </p>
-      <div class="line"></div>
-      <a href="/shop" class="boton-front">VER COLECCIÓN</a>
-    </article>
-    <picture>
-      <img
-        src="./img/harry-potter/snape-patronus-1.webp"
-        alt="Snape patronus"
-      />
-    </picture>
-  </section>
+  <% licenses.forEach( license => { %> <%- include('partials/license',
+  {license}) %> <%}) %>
+
   <section class="lanzamientos glide">
     <h2 class="lanzamientos__titulo">ULTIMOS LANZAMIENTOS</h2>
     <div class="ultimos_lanzamientos glide__track" data-glide-el="track">
       <ul class="lanzamientos_lista glide__slides">
-        <% productos.forEach(producto => { %>
-          <%-include('partials/cardDynamic.ejs', { producto: producto }) %> <% }) %>
+        <% productos.forEach(producto => { %> <%-include('partials/card.ejs', {
+        producto: producto }) %> <% }) %>
       </ul>
     </div>
     <div class="glide__arrows" data-glide-el="controls">

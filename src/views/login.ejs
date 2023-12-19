@@ -1,0 +1,67 @@
+<%- contentFor('title') %> Login <%- contentFor('styles') %>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
+/>
+
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/admin.css" />
+<link rel="stylesheet" href="/css/responsive.css" />
+<link rel="stylesheet" href="/css/variables.css" />
+
+<%- contentFor('body') %>
+<main class="main-register">
+  <h1 class="title-register">INGRESAR A MI CUENTA</h1>
+  <% if (typeof errors != 'undefined') { %>
+  <ul>
+    <% errors.forEach(error => { %>
+    <li><h3><%= error.msg %></h3></li>
+    <% }) %>
+  </ul>
+  <% } %>
+  <div class="register-container">
+    <form class="form-container" action="/auth/login" method="post">
+      <div class="user-register">
+        <label for="Email">Email:</label>
+        <input
+          type="text"
+          class="borde_rojo input_texto input-register"
+          name="email"
+          id="email"
+          placeholder="johndoe@correo.com"
+          value="<%= typeof values != 'undefined' ? values.email : '' %>"
+        />
+      </div>
+      <div class="password-register">
+        <label class="password-field" for="password">Contraseña:</label>
+        <input
+          type="password"
+          class="borde_rojo input_texto input-register"
+          name="password"
+          id="password"
+          placeholder="********"
+          value=""
+        />
+      </div>
+      <br />
+      <br />
+
+      <div class="sumit-container div-br">
+        <input type="submit" class="boton_rojo" value="Ingresar" />
+        <div class="rememberme">
+          <input type="checkbox" class="checkbox-login" />
+          <label class="rememberme-label">Recordarme</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <a href="#" class="password-lost">Olvidé mi contraseña</a>
+  <a class="register-in-login" href="/auth/register"
+    >No tienes usuario?, REGISTRAR AHORA</a
+  >
+</main>
+<%- contentFor('scripts') %>

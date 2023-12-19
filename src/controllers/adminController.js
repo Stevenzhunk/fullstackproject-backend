@@ -1,211 +1,221 @@
-/*ATENCION!!!
- para llamar al layout del admin en estas vistas hay que usar el path del adminCreate (linea 13 de este codigo)
-  app.get('/', function(req, res) {
-  res.render('the-view', { layout: 'specific-layout' });
-});
-*/
+const model = require('../models/productModel');
+const modelLicences = require('../models/license');
 
-// constante prueba para admin
-const productos = [
-  {
-    id: 1,
-    class: 'STAR WARS',
-    title: 'STORMTROOPER LIGHTSABER',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/star-wars/trooper-box.webp',
-    imageFront: '/img/star-wars/trooper-1.webp',
-    altBack: 'BABY YODA BLUEBALL',
-    altFront: 'BABY YODA BLUEBALL',
-    barcode: 'STW0010001',
-  },
-  {
-    id: 2,
-    class: 'POKEMON',
-    title: 'PIDGEOTTO',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/pokemon/pidgeotto-box.webp',
-    imageFront: '/img/pokemon/pidgeotto-1.webp',
-    altBack: 'PIDGEOTTO',
-    altFront: 'PIDGEOTTO',
-    barcode: 'STW0010002',
-  },
-  {
-    id: 3,
-    class: 'HARRY POTTER',
-    title: 'LUNA LOVEGOOD LION MASK',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/harry-potter/luna-box.webp',
-    imageFront: '/img/harry-potter/luna-1.webp',
-    altBack: 'HARRY POTTER',
-    altFront: 'HARRY POTTER',
-    barcode: 'STW0010003',
-  },
-  {
-    id: 4,
-    class: 'STAR WARS',
-    title: 'BABY YODA',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/star-wars/baby-yoda-box.webp',
-    imageFront: '/img/star-wars/baby-yoda-1.webp',
-    altBack: 'BABY YODA BOX',
-    altFront: 'FUNKO BABY YODA',
-    barcode: 'STW0010004',
-  },
-  {
-    id: 5,
-    class: 'POKEMON',
-    title: 'CHARMANDER',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/pokemon/charmander-box.webp',
-    imageFront: '/img/pokemon/charmander-1.webp',
-    altBack: 'CHARMANDER BOX',
-    altFront: 'FUNKO CHARMANDER',
-    barcode: 'STW0010005',
-  },
-  {
-    id: 6,
-    class: 'HARRY POTTER',
-    title: 'HARRY POTTER',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/harry-potter/harry-box.webp',
-    imageFront: '/img/harry-potter/harry-1.webp',
-    altBack: 'HARRY POTTER',
-    altFront: 'HARRY POTTER',
-    barcode: 'STW0010006',
-  },
-  {
-    id: 7,
-    class: 'STAR WARS',
-    title: 'BOBBA FETH',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/star-wars/bobbafeth-box.webp',
-    imageFront: '/img/star-wars/bobbafeth-1.webp',
-    altBack: 'BOBBA FETH BOX',
-    altFront: 'FUNKO BOBBA FETH',
-    barcode: 'STW0010007',
-  },
-  {
-    id: 8,
-    class: 'POKEMON',
-    title: 'DRAGONITE',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/pokemon/dragonite-box.webp',
-    imageFront: '/img/pokemon/dragonite-1.webp',
-    altBack: 'DRAGONITE BOX',
-    altFront: 'FUNKO DRAGONITE',
-    barcode: 'STW0010008',
-  },
-  {
-    id: 9,
-    class: 'HARRY POTTER',
-    title: 'HERMIONE',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/harry-potter/hermione-box.webp',
-    imageFront: '/img/harry-potter/hermione-1.webp',
-    altBack: 'HERMIONE BOX',
-    altFront: 'FUNKO HERMIONE',
-    barcode: 'STW0010009',
-  },
-  {
-    id: 10,
-    class: 'HARRY POTTER',
-    title: 'SNAPE PATRONUS',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/harry-potter/snape-patronus-box.webp',
-    imageFront: '/img/harry-potter/snape-patronus-1.webp',
-    altBack: 'SNAPE PATRONUS BOX',
-    altFront: 'FUNKO SNAPE PATRONUS',
-    barcode: 'STW0010010',
-  },
-  {
-    id: 11,
-    class: 'POKEMON',
-    title: 'PIKACHU',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/pokemon/pikachu-box.webp',
-    imageFront: '/img/pokemon/pikachu-1.webp',
-    altBack: 'PIKACHU BOX',
-    altFront: 'FUNKO PIKACHU',
-    barcode: 'STW0010011',
-  },
-  {
-    id: 12,
-    class: 'POKEMON',
-    title: 'VULPIX',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/pokemon/vulpix-box.webp',
-    imageFront: '/img/pokemon/vulpix-1.webp',
-    altBack: 'VULPIX BOX',
-    altFront: 'FUNKO VULPIX',
-    barcode: 'STW0010011',
-  },
-  {
-    id: 13,
-    class: 'STAR WARS',
-    title: 'LUKE',
-    price: '$ 1799,99',
-    paymethod: '3 CUOTAS SIN INTERÉS',
-    imageBack: '/img/star-wars/luke-box.webp',
-    imageFront: '/img/star-wars/luke-1.webp',
-    altBack: 'LUKE BOX',
-    altFront: 'FUNKO LUKE',
-    barcode: 'STW0010013',
-  },
-];
+const sharp = require('sharp');
+const { validationResult } = require('express-validator');
 
 const path = require('path');
-const adminHome = (req, res) => {
-  res.render('admin', {
-    layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
-    productos,
-  });
+
+const fs = require('fs');
+
+const adminHome = async (req, res) => {
+  try {
+    const products = await model.findAll({
+      include: modelLicences,
+    });
+    res.render('admin', {
+      layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
+      productos: products,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
 };
 
-const adminCreate = (req, res) => {
-  res.render('create', {
-    layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
-  });
+const adminCreate = async (req, res) => {
+  try {
+    const licenses = await modelLicences.findAll();
+    res.render('create', {
+      layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
+      licenses,
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
 };
 
-const adminCreatePost = (req, res) => {
-  res.send('<h1>Soy el post de la Creacion del Admin</h1>');
+const adminCreateStore = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    try {
+      const licenses = await modelLicences.findAll();
+      return res.render('create', {
+        layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
+        values: req.body,
+        errors: errors.array(),
+        licenses,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(505).send(error);
+    }
+  }
+  try {
+    let i = 0;
+    const images = req.files;
+    const data = req.body;
+    let productModel = data;
+    const dateId = Date.now();
+
+    if (images) {
+      const imageFrontModel = `/uploads/products/producto_front_${dateId}.png`;
+      const imageBackModel = `/uploads/products/producto_back_${dateId}.png`;
+      productModel = {
+        image_front: imageFrontModel,
+        image_back: imageBackModel,
+        ...data,
+      };
+    }
+    const products = await model.create(productModel);
+    if (products && req.files) {
+      images.forEach((image) => {
+        const pathImage = `../../public/uploads/products/producto_${
+          i == 0 ? 'front' : 'back'
+        }_${dateId}.png`;
+        sharp(image.buffer)
+          .resize(400, 400, {
+            fit: 'contain',
+            background: '#FFF',
+          })
+          .toFile(path.resolve(__dirname, pathImage))
+          .catch((error) => console.log(error));
+        i++;
+      });
+    }
+    res.redirect('/admin');
+  } catch (error) {
+    console.log(error);
+    res.status(505).send(error);
+  }
 };
 
-const adminEditGet = (req, res) => {
-  const { id } = req.params;
-  //como mando el parametro del item a editar
-  res.render('edit', {
-    layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
-  });
+const adminEditGet = async (req, res) => {
+  try {
+    const productos = await model.findByPk(req.params.id);
+    const licenses = await modelLicences.findAll();
+    if (productos) {
+      res.render('edit', {
+        layout: path.join(__dirname, '../views/layouts/layoutAdmin'),
+        productos,
+        licenses,
+      }); //machete dice: {values: productos}
+      console.log(productos);
+    } else {
+      res.status(404).send('El producto no existe');
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
 };
 
-const adminEditPut = (req, res) => {
-  const { id } = req.params;
-  res.send(`<h1>soy la Actualizacion Nro: ${id} del Admin</h1>`);
+const adminEditPut = async (req, res) => {
+  console.log(req.params, req.body, req.files);
+  //if (req.files) {
+  //  console.log(req.files[0].buffer, req.files[1].buffer);
+  //}
+
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.render('edit', {
+      values: req.body,
+      errors: errors.array(), // ver esto, me faltaría algo que imprima los errores en la vista (creo)
+    });
+  }
+
+  try {
+    const affected = await model.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (affected[0] == 1) {
+      const product = await model.findByPk(req.params.id);
+      const pathFront = product.dataValues.image_front;
+      console.log(pathFront);
+      const pathBack = product.dataValues.image_back;
+      console.log(pathBack);
+      if (req.files[0]) {
+        const imageFront = req.files[0].buffer;
+
+        sharp(imageFront)
+          .resize(300)
+          .toFile(path.resolve(__dirname, `../../public${pathFront}`));
+      }
+      if (req.files[1]) {
+        const imageBack = req.files[1].buffer;
+        sharp(imageBack)
+          .resize(300)
+          .toFile(path.resolve(__dirname, `../../public${pathBack}`));
+      }
+
+      //res.send('Producto Actualizado Correctamente. Redirigiendo al Admin...');
+      //VER COMO INCLUYO UNA CONFIRMACIÓN DE MOFICACIÓN ANTES DE QUE REDIRIJA AL ADMIN
+
+      res.redirect('/admin');
+    } else {
+      res.status(500).send('Error al actualizar el producto');
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
 };
 
-const adminDelete = (req, res) => {
-  const { id } = req.params;
-  res.send(`<h1>Soy el Item Nro: ${id} Borrado por el Admin</h1>`);
+// const adminEditPut = (req, res) => {
+//   const { id } = req.params;
+//   res.send(`<h1>soy la Actualizacion Nro: ${id} del Admin</h1>`);
+// };
+
+const adminDelete = async (req, res) => {
+  console.log(req.params.id);
+
+  const product = await model.findByPk(req.params.id);
+  const pathFront = product.dataValues.image_front;
+  console.log(pathFront);
+  const pathBack = product.dataValues.image_back;
+  console.log(pathBack);
+
+  try {
+    const result = await model.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    // console.log(result);
+
+    if (result == 1) {
+      fs.unlink(
+        path.resolve(__dirname, `../../public${pathFront}`),
+        (error) => {
+          if (error) {
+            console.log(error);
+          }
+        }
+      );
+      fs.unlink(path.resolve(__dirname, `../../public${pathBack}`), (error) => {
+        if (error) {
+          console.log(error);
+        }
+      });
+    }
+
+    res.redirect('/admin');
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
 };
 
 module.exports = {
   adminHome,
   adminCreate,
-  adminCreatePost,
+  adminCreateStore,
   adminEditGet,
   adminEditPut,
   adminDelete,
 };
+

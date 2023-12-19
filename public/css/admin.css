@@ -5,7 +5,7 @@
   margin-left: 80px;
 }
 main {
-  margin-top: var(--spacing-128)
+  margin-top: var(--spacing-128);
 }
 h1 {
   color: var(--dark-solid);
@@ -66,8 +66,8 @@ label {
 
 /*Esto es para sacar las flechitas del input Number*/
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -193,6 +193,8 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .terms {
@@ -309,6 +311,15 @@ span {
   font-size: var(--font-small);
   color: var(--secondary-solid);
 }
+
+.register-in-login {
+  display: flex;
+  justify-content: center;
+  font-size: var(--font-small);
+  color: var(--secondary-solid);
+  padding: 2rem;
+}
+
 .boton-login {
   display: flex;
   background: var(--primary-solid);
@@ -360,7 +371,7 @@ span {
   font-weight: var(--weight-large);
   text-transform: uppercase;
 }
-.plus-symbol{
+.plus-symbol {
   font-size: var(--font-xlarge);
 }
 table {
@@ -373,6 +384,12 @@ table {
 .icon-delete {
   color: var(--primary-solid);
   text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.icon-delete:hover {
+  cursor: pointer;
 }
 .table-description {
   font: var(--base-font-fix);
@@ -390,6 +407,7 @@ table {
   padding-top: var(--spacing-16);
   padding-left: var(--spacing-16);
   padding-bottom: var(--spacing-16);
+  text-transform: uppercase;
 }
 #add {
   display: flex;
@@ -399,7 +417,6 @@ table {
   margin: var(--spacing-12);
 }
 .icons-edit-delete {
-  
   display: flex;
   flex-direction: row;
   gap: var(--spacing-4);
@@ -410,6 +427,13 @@ table {
   border-radius: var(--spacing-4);
   display: flex;
   justify-content: center;
+}
+.error_list_validation {
+  color: var(--primary-solid);
+  border-radius: var(--spacing-4);
+  font-size: var(--font-medium);
+  font-weight: var(--weight-large);
+  padding: var(--spacing-8);
 }
 /*responsive */
 

@@ -7,7 +7,7 @@ Apartado del backend creado con NodeJs-Express para las operaciones CRUD del ser
 #### Get all items
 
 ```http
-  GET /
+  GET /Home
 ```
 
 Devuelve Servidor Statico (Rutas Json para importar al PostMan en Discord)
@@ -24,14 +24,14 @@ Devuelve Servidor Statico (Rutas Json para importar al PostMan en Discord)
 
 | Parameter         | Type     | Description                                                                             |
 | :---------------- | :------- | :-------------------------------------------------------------------------------------- |
-| `ALWAYS_USER`     | `string` | **Required**. usuario base de datos de Alwaysdata                                       |
-| `ALWAYS_PASSWORD` | `string` | **Required**. password base de datos de Alwaysdata                                      |
-| `ALWAYS_DATABASE` | `string` | **Required**. nombre base de datos de Alwaysdata                                        |
-| `ALWAYS_HOST `    | `string` | **Opcional**. host Alwaysdata                                                           |
+| `LOCAL_USER`     | `string` | **Required**. usuario base de datos de Alwaysdata                                       |
+| `LOCAL_PASSWORD` | `string` | **Required**. password base de datos de Alwaysdata                                      |
+| `LOCAL_DATABASE` | `string` | **Required**. nombre base de datos de Alwaysdata                                        |
+| `LOCAL_HOST `    | `string` | **Opcional**. host Alwaysdata                                                           |
 | `PORT`            | `string` | **Opcional**. host local para correr el servidor ( Sino se especifica corre en el 3000) |
 
 ## Tech Stack
 
 **Server:** Node, Express, MySQL
 
-**Dependencias:** colors, cors, dotenv, express, mysql2, morgan, nodemon, ejs, express-ejs-layouts.
+**Dependencias:** colors, cors, dotenv, express, mysql2, morgan, nodemon, ejs, express-ejs-layouts, bcrypt, multer, cookie-session, sequelize.

@@ -1,6 +1,4 @@
-<%- contentFor('title') %> Crear
-
-<%- contentFor('styles') %>
+<%- contentFor('title') %> Crear <%- contentFor('styles') %>
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
@@ -10,110 +8,136 @@
   href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
 />
 
-
 <%- contentFor('body') %>
 <main class="main_edit">
-    <h1>CREAR NUEVO ITEM</h1>
+  <h1>CREAR NUEVO ITEM</h1>
+  <br />
+  <br />
+  <% if(typeof errors != 'undefined'){ %>
+  <ul>
+    <% errors.forEach(error => { %>
+    <li class="error_list_validation"><%= error.msg %></li>
+    <%})%>
+  </ul>
+  <%}%>
+  <form action="/admin" method="post" enctype="multipart/form-data">
+    <div class="renglon1">
+      <label for="categoria">Categoria:</label>
+      <select name="categoryId" id="categoria">
+        <option
+          value="<%= typeof values != 'undefined' ? values.categoryId : ''%>"
+          disabled
+          selected
+          hidden
+        >
+          Seleccionar
+        </option>
+        <option value="Figuras">Figuras</option>
+      </select>
+      <label for="licencia">Licencia:</label>
+      <select
+        name="license_id"
+        id="licencia"
+        value="<%= typeof values != 'undefined' ? values.license_id : ''%>"
+      >
+        <option disabled selected hidden>Seleccionar</option>
+        <% licenses.forEach(license => { %>
+        <option name="license_id" value="<%=license.id%>">
+          <%=license.name%>
+        </option>
+        <% }) %>
+      </select>
+    </div>
     <br />
     <br />
-    <form action="">
-      <div class="renglon1">
-        <label for="categoria">Categoria:</label>
-        <select name="" id="categoria">
-          <option value="" disabled selected hidden>Seleccionar</option>
-          <option value="value1">Figuras</option>
-        </select>
-        <label for="licencia">Licencia:</label>
-        <select name="" id="licencia">
-          <option value="" disabled selected hidden>Seleccionar</option>
-          <option value="value1">Naruto Shippuden</option>
-          <option value="value2">Star Wars</option>
-          <option value="value3">Pokemon</option>
-          <option value="value4">Harry Potter</option>
-        </select>
-      </div>
-      <br />
-      <br />
-      <div class="renglon2">
-        <label for="">Nombre del producto:</label>
-        <input
-          class="borde_rojo input_texto input_grande"
-          placeholder="Kakashi Hatake Shippuden Saga"
-        />
-      </div>
-      <br />
-      <br />
-      <div class="3renglon">
-        <textarea
-          name=""
-          id=""
-          placeholder="Descripción del producto"
-        ></textarea>
-      </div>
-      <br />
-      <br />
-      <div class="4renglon">
-        <label for="">SKU:</label>
-        <input
-          type="text"
-          class="borde_rojo input_texto input_mediano"
-          name=""
-          id=""
-          placeholder="SSK111AB001"
-        />
-        <label for="">Precio:</label>
-        <input
-          type="number"
-          class="borde_rojo input_texto input_mediano"
-          placeholder="$ 0.000,00"
-        />
-        <label for="">Stock:</label>
-        <input
-          type="number"
-          class="borde_rojo input_texto input_chico"
-          placeholder="0"
-        />
-      </div>
-      <br />
-      <br />
-      <div class="5renglon">
-        <label for="">Descuento</label>
-        <input
-          type="number"
-          class="borde_rojo input_texto input_chico"
-          placeholder="0%"
-        />
-        <label for="">Cuotas:</label>
-        <select name="" id="">
-          <option value="" disabled selected hidden>
-            3 Cuotas sin interes
-          </option>
-          <option value="value1">3 Cuotas sin interes</option>
-          <option value="value2">6 Cuotas sin interes</option>
-          <option value="value3">12 Cuotas sin interes</option>
-          <option value="value4">18 Cuotas sin interes</option>
-        </select>
-      </div>
-      <br />
-      <br />
-      <div class="6renglon">
-        <label for="">Imagenes:</label>
-        <input type="file" name="" id="" />
-      </div>
-      <br />
-      <br />
-      <div class="7renglon">
-        <input
-          type="submit"
-          class="boton_rojo"
-          value="Agregar Producto"
-          class="b"
-        />
-        <input type="reset" class="boton_rojo" value="Limpiar" />
-      </div>
-    </form>
-  </main>
-
+    <div class="renglon2">
+      <label for="">Nombre del producto:</label>
+      <input
+        class="borde_rojo input_texto input_grande"
+        placeholder=""
+        name="product_name"
+        value="<%= typeof values != 'undefined' ? values.product_name : ''%>"
+      />
+    </div>
+    <br />
+    <br />
+    <div class="3renglon">
+      <textarea
+        name="product_description"
+        id=""
+        placeholder="Descripción del producto"
+        value="<%= typeof values != 'undefined' ? values.product_description : ''%>"
+      ><%= typeof values != 'undefined' ? values.product_description : ''%></textarea>
+    </div>
+    <br />
+    <br />
+    <div class="4renglon">
+      <label for="">SKU:</label>
+      <input
+        type="text"
+        class="borde_rojo input_texto input_mediano"
+        name="sku"
+        id=""
+        placeholder="SSK111AB001"
+        value="<%= typeof values != 'undefined' ? values.sku : ''%>"
+      />
+      <label for="">Precio:</label>
+      <input
+        type="number"
+        name="price"
+        class="borde_rojo input_texto input_mediano"
+        placeholder="$ 0.000,00"
+        value="<%= typeof values != 'undefined' ? values.price : ''%>"
+        step="0.01"
+      />
+      <label for="">Stock:</label>
+      <input
+        type="number"
+        name="stock"
+        class="borde_rojo input_texto input_chico"
+        placeholder="0"
+        value="<%= typeof values != 'undefined' ? values.stock : ''%>"
+      />
+    </div>
+    <br />
+    <br />
+    <div class="5renglon">
+      <label for="">Descuento</label>
+      <input
+        type="number"
+        name="discount"
+        class="borde_rojo input_texto input_chico"
+        placeholder="0%"
+        value="<%= typeof values != 'undefined' ? values.discount : ''%>"
+      />
+      <label for="">Cuotas:</label>
+      <select name="dues" id="">
+        <option value="" disabled selected hidden>3 Cuotas sin interes</option>
+        <option value="3 Cuotas sin interes">3 Cuotas sin interes</option>
+        <option value="6 Cuotas sin interes">6 Cuotas sin interes</option>
+        <option value="12 Cuotas sin interes">12 Cuotas sin interes</option>
+        <option value="18 Cuotas sin interes">18 Cuotas sin interes</option>
+      </select>
+    </div>
+    <br />
+    <br />
+    <div class="6renglon">
+      <label for="">Imagenes:</label>
+      <input type="file" name="image" id="image_front" accept="image/*"/>
+      <input type="file" name="image" id="image_back" accept="image/*"/>
+    </div>
+    <br />
+    <br />
+    <div class="7renglon">
+      <input
+        type="submit"
+        class="boton_rojo"
+        value="Agregar Producto"
+        class="b"
+      />
+      <input type="reset" class="boton_rojo" value="Limpiar" />
+    </div>
+  </form>
+</main>
 
 <%- contentFor('scripts') %>
-
