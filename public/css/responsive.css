@@ -129,6 +129,10 @@
   img {
     max-width: 100%;
   }
+  .item_container {
+    display: grid;
+  }
+
   picture {
     max-width: 100%;
   }
